@@ -53,6 +53,11 @@ const path = require('path');
 
     //
 
+    app.get("/api/welcome",(req, res) => {
+        console.log(req.session)
+        res.status(200).send("Welcome 🙌 ");
+      });
+
      app.post('/user/login',  async function (req, res){  
        const {password,phone_number} = req.body;
        console.log( req.body)
@@ -90,14 +95,7 @@ const path = require('path');
         })
       }); 
 
-     if(process.env.NODE_ENV=='production'){
-         const path = require('path')
-        app.use(express.static(path.join("client/build")))
-     app.get('/',(req,res)=>{
-         app.use(express.static(path.resolve(__dirname,'client','build')))
-         res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-     })
- }
+     
 if(process.env.NODE_ENV === "production"){
     console.log("this is the production")
     app.use(express.static(path.join("client/build")))

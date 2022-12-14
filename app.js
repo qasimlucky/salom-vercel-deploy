@@ -90,12 +90,6 @@ const path = require('path');
         })
       }); 
 
-
-
-    app.get('/', (req, res) => {
-      res.send('Salom-Tv app')
-    })
-
      if(process.env.NODE_ENV=='production'){
          const path = require('path')
         app.use(express.static(path.join("client/build")))

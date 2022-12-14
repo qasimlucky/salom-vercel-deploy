@@ -4,9 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon app.js"
+    "devStart": "nodemon app.js",
+    "client": "npm install && npm start --prefix client",
+    "start": "concurrently \"nodemon app.js\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",

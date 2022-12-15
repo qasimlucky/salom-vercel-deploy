@@ -79,7 +79,7 @@ function Header() {
                             <div class="header-right header-right-2 text-end">
                                 <ul class="z-index header-3rd-section">
                                     <li>
-                                        <Select id="stv-flag-main"
+                                       {/*  <Select id="stv-flag-main"
                                             
                                             options={data}
                                             formatOptionLabel={optiondata => (
@@ -90,7 +90,7 @@ function Header() {
 
                                                 </div>
                                             )}
-                                        />
+                                        /> */}
                                         {/* <Select id="stv-flag-main"
                                             
                                             options={countries}

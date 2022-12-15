@@ -861,8 +861,25 @@
     }
 }
 @media only screen and (min-width: 992px)  and (max-width:5000px){
-    .fullwidth-slider {
+    .fullwidth-slider.video-slider {
+        /* height: 93vh !important; */
+        height:auto !important;
+        background-color: #0d0d31;
+    }
+    #headerslider1 {
+        padding: 20px 0 25px 0 !important;
+    }
+    .stv-hm-rs-main.mobile-margin{
+        margin-top: 17px;
+    }
+    .fullwidth-slider.first-page-slider {
         display: block;
+        height: 67vh !important;
+    }
+    .fullwidth-slider.first-page-slider .carousel-inner .movie-slider-content {
+        position: absolute;
+        top: 110px !important;
+        /* bottom: 140px; */
     }
     .stv-slider-list3{
         display: block;
@@ -1250,8 +1267,8 @@
     }
 }
 @media only screen and (min-width: 1400px){
-    .fullwidth-slider {
-        height: 105vh;
+    .fullwidth-slider.first-page-slider {
+        height: 67vh;
     }
     .fullwidth-slider .carousel-inner .movie-slider-container {
         position: relative;

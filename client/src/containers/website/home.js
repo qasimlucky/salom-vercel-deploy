@@ -579,7 +579,7 @@ function HomePage() {
     </div> */}
     
     
-    <div class="fullwidth-slider">
+    <div class="fullwidth-slider first-page-slider">
     <div>
       {/* <button onClick={openModal}>Open Modal</button> */}
       
@@ -686,7 +686,7 @@ function HomePage() {
 
         {/* SLIDER LIST ONE 1 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
 
-        <div class="stv-hm-rs-main">
+        <div class="stv-hm-rs-main mobile-margin">
             
             <div class="stv-hm-rs-box1 first-hm-heading" >
             {languagedata.trendin_see_all}

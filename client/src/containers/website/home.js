@@ -33,7 +33,7 @@ function HomePage() {
     useEffect(() => { 
         axios
         .post("/language/get",{
-          keyword: lang
+          keyword: "En"
       
         })
         .then(Response =>{

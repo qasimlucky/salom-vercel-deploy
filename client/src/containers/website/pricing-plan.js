@@ -11,7 +11,7 @@ function PricingPlan() {
   useEffect(() => { 
     axios
     .post("/language/get",{
-      keyword: lang
+      keyword: "En"
   
     })
     .then(Response =>{

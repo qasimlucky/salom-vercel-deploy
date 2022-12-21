@@ -60,6 +60,9 @@ function Sidebar (){
                     <Link to="/addmovies" class="nav-link"><i data--="mail"></i><span>Movies</span></Link>
                     </li>
                     <li class="dropdown">
+                    <Link to="/language" class="nav-link"><i data-feather="copy"></i><span>Languages</span></Link>    
+                    </li>
+                    <li class="dropdown">
                     <Link to="/subscription" class="nav-link"><i data-feather="copy"></i><span>Subscriptions</span></Link>    
                     </li>
                     <li class="dropdown">

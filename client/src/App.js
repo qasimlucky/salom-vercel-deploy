@@ -10,7 +10,9 @@ import MoviesUpload from './containers/admin/movies-upload';
  import AddMovies from './containers/admin/movies'; 
 import User from './containers/admin/user';
 import Post from './containers/admin/post';
-import Language from './containers/admin/languages'
+import AddLanguage from './containers/admin/add-languages'
+import Languages from './containers/admin/language';
+import EditLanguage from './containers/admin/edit-language';
 
 //web Pages
 import SignUp from './containers/website/sign-up';
@@ -50,7 +52,9 @@ function App() {
                 
                  <Route path="/user" exact element={<User/>}/>
                  <Route path="/post" exact element={<Post/>}/>
-                 <Route path="/language" exact element={<Language/>}/>
+                 <Route path="/addlanguage" exact element={<AddLanguage/>}/>
+                 <Route path="/language" exact element={<Languages/>}/>
+                 <Route path="/editlanguage" exact element={<EditLanguage/>}/>
                 
                {/* <Route path="/subscription" exact element={<Subscription/>}/>
                 <Route path="/notification" exact element={<Notification/>}/> */}

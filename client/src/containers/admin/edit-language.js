@@ -1,25 +1,22 @@
 import { useState,useEffect } from "react";
+import { useLocation,Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from "axios";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 
-function Language() {
+function EditLanguage() {
  
  
-  const url = "/language"
+  const url = "/language/update"
   const [data, setData] = useState({
-      language_title : "",
-      keyword : "",
-      file : "",
-      
-  
   })
 
       function handle(e){
         
         const newdata = {...data}
         newdata[e.target.id] = e.target.value
+        newdata["lang_id"] = Rdata.lang_id
         setData(newdata)
         console.log(newdata)
       //console.log(data.file)
@@ -27,7 +24,9 @@ function Language() {
 
       function upload (e){
         const newdata = {...data}
+
         const file = e.target.files[0]
+
         newdata[e.target.id] = e.target.files[0]
         setData(newdata)
         console.log(newdata)
@@ -51,6 +50,11 @@ function Language() {
       
       }
 
+      const location = useLocation();
+      // console.log(location.state.sendData) 
+        const Rdata = location.state.sendData
+        console.log("this is Rdata")
+        console.log(Rdata.language_title)
   
   return (
     <>
@@ -91,6 +95,7 @@ function Language() {
                   </div>
                   <div class="form-group col-6">
                     <input onChange = {(e) =>handle(e)} id="language_title" type="text" class="stv-lang-input form-control" name="language_title"   placeholder="language_title" />
+                    <input  onChange = {(e) =>handle(e)} id="lang_id" type="hidden" class="stv-lang-input form-control" name="lang_id" value= {Rdata.lang_id}  placeholder="lang_id" />
                   </div>  
                 </div>
                 <div class="row">
@@ -780,4 +785,4 @@ function Language() {
 
 
 
-export default Language
+export default EditLanguage

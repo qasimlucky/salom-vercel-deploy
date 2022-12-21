@@ -1286,275 +1286,6 @@
     }
 }
 /* HOME PAGE RESPONSIVE SECTION ENDS ======================================================================================*/
-/* PROFILE PAGE RESPONSIVE SECTION STARTS  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-@media only screen and (min-width: 280px)  and (max-width:991px){
-    .stv-profile .box-change2{
-        display: block !important;
-    }
-.stv-profile .box-change{
-    display: none !important;
-}
-}
-@media only screen and (min-width: 992px)  and (max-width:5000px){
-    .stv-profile .box-change2{
-        display: none !important;
-    }
-    .stv-profile .box-change{
-    display: block !important;
-}   
-}
-@media only screen and (min-width: 280px)  and (max-width:400px){
-    .user-perfile {
-        background-color: #0d0d31 !important;
-        padding: 2% 0;
-        max-width: 298px;
-        margin: 15px auto 0;
-    }
-    .stv-profile .profile-p1 {
-        width: 92%;
-        margin: auto;
-    }
-    .stv-profile .profile-p2 {
-        width: 92%;
-        display: grid;
-        margin: auto;
-        position: relative;
-    }
-    .stv-profile .profile-p2p1 {
-        height: auto;
-        width: 100%;
-        padding: 15px;
-        background-color: #0d0d3f;
-        float: left;
-        margin: auto;
-        position: relative;
-        margin-top: 0 !important;
-        box-shadow: 0 0 23px 0px #000000c4;
-    }
-    .stv-profile .profile-p2p2 {
-        height: auto;
-        width: 100%;
-        padding: 10px 20px;
-        background-color: #0D0D3F;
-        float: left;
-        position: relative;
-        margin: 20px auto;
-        box-shadow: 0 0 23px 0px #000000c4;
-    }    
-}
-@media only screen and (min-width: 401px)  and (max-width:699px){
-    .user-perfile {
-        background-color: #0d0d31 !important;
-        padding: 2% 0;
-        max-width: 435px;
-        margin: 15px auto 0;
-    }
-    .stv-profile .profile-p1 {
-        width: 92%;
-        margin: auto;
-    }
-    .stv-profile .profile-p2 {
-        width: 92%;
-        display: grid;
-        margin: auto;
-        position: relative;
-    }
-    .stv-profile .profile-p2p1 {
-        height: auto;
-        width: 100%;
-        padding: 15px;
-        background-color: #0d0d3f;
-        float: left;
-        margin: auto;
-        position: relative;
-        margin-top: 0 !important;
-        box-shadow: 0 0 23px 0px #000000c4;
-    }
-    .stv-profile .p2p1-edit {
-        width: 100%;
-        height: auto;
-    }
-    .stv-profile .p2p1-edit-btn {
-        color: #d51c58;
-        text-align: right;
-        font-family: poppins;
-        font-size: large;
-    }
-    .stv-profile .p2p1-pic-img {
-        border-radius: 50%!important;
-        height: 175px;
-        width: 175px;
-        margin: auto;
-    }
-    .stv-profile .p2p1-name-h3 {
-        color: whitesmoke;
-        font-family: poppins;
-        font-size: x-large;
-    }
-    .stv-profile .p2p1-about {
-        color: whitesmoke;
-        padding: 2px 0px;
-        text-align: center;
-        line-height: 27px;
-        font-size: 16px;
-        font-family: poppins;
-    }
-    .stv-profile .profile-p2p2 {
-        height: auto;
-        width: 100%;
-        padding: 10px 20px;
-        background-color: #0D0D3F;
-        float: left;
-        position: relative;
-        margin: 20px auto;
-        box-shadow: 0 0 23px 0px #000000c4;
-    }
-    .stv-profile .p2p2-hm-h3 {
-        color: whitesmoke;
-        border-bottom: 1px solid whitesmoke;
-        padding: 10px 0;
-        font-family: poppins;
-        font-size: x-large;
-    }
-    .stv-profile .info-label {
-        color: whitesmoke;
-        font-family: poppins;
-        font-weight: 100;
-        font-size: 16px;
-    }
-    .stv-profile .info-h3 {
-        color: whitesmoke;
-        font-family: 'Poppins';
-        font-size: large;
-    }
-    .stv-profile .change-btn {
-        color: #d51c58 !important;
-        font-size: large;
-        font-family: poppins;
-    }
-}
-@media only screen and (min-width: 700px)  and (max-width:991px){
-    .user-perfile {
-        background-color: #0d0d31 !important;
-        padding: 2% 0;
-        max-width: 435px;
-        margin: 15px auto 0;
-    }
-    .stv-profile .profile-p1 {
-        width: 92%;
-        margin: auto;
-    }
-    .stv-profile .profile-p2 {
-        width: 92%;
-        display: grid;
-        margin: auto;
-        position: relative;
-    }
-    .stv-profile .profile-p2p1 {
-        height: auto;
-        width: 100%;
-        padding: 15px;
-        background-color: #0d0d3f;
-        float: left;
-        margin: auto;
-        position: relative;
-        margin-top: 0 !important;
-        box-shadow: 0 0 23px 0px #000000c4;
-    }
-    .stv-profile .p2p1-edit {
-        width: 100%;
-        height: auto;
-    }
-    .stv-profile .p2p1-edit-btn {
-        color: #d51c58;
-        text-align: right;
-        font-family: poppins;
-        font-size: large;
-    }
-    .stv-profile .p2p1-pic-img {
-        border-radius: 50%!important;
-        height: 175px;
-        width: 175px;
-        margin: auto;
-    }
-    .stv-profile .p2p1-name-h3 {
-        color: whitesmoke;
-        font-family: poppins;
-        font-size: x-large;
-    }
-    .stv-profile .p2p1-about {
-        color: whitesmoke;
-        padding: 2px 0px;
-        text-align: center;
-        line-height: 27px;
-        font-size: 16px;
-        font-family: poppins;
-    }
-    .stv-profile .profile-p2p2 {
-        height: auto;
-        width: 100%;
-        padding: 10px 20px;
-        background-color: #0D0D3F;
-        float: left;
-        position: relative;
-        margin: 20px auto;
-        box-shadow: 0 0 23px 0px #000000c4;
-    }
-    .stv-profile .p2p2-hm-h3 {
-        color: whitesmoke;
-        border-bottom: 1px solid whitesmoke;
-        padding: 10px 0;
-        font-family: poppins;
-        font-size: x-large;
-    }
-    .stv-profile .info-label {
-        color: whitesmoke;
-        font-family: poppins;
-        font-weight: 100;
-        font-size: 16px;
-    }
-    .stv-profile .info-h3 {
-        color: whitesmoke;
-        font-family: 'Poppins';
-        font-size: large;
-    }
-    .stv-profile .change-btn {
-        color: #d51c58 !important;
-        font-size: large;
-        font-family: poppins;
-    }
-}
-@media only screen and (min-width: 992px)  and (max-width:1499px){
-    .stv-profile .profile-p2 {
-        width: auto;
-        display: flex;
-        margin: auto;
-        position: relative;
-        max-width: 940px;
-    }
-    .stv-profile .profile-p1 {
-        margin: auto;
-        max-width: 915px;
-    }
-}
-@media only screen and (min-width: 1500px){
-    .stv-profile .profile-p2 {
-        width: auto;
-        display: flex;
-        margin: auto;
-        position: relative;
-        max-width: 990px;
-    }
-    .stv-profile .profile-p1 {
-        margin: auto;
-        max-width: 960px;
-    }
-}
-/* PROFILE PAGE RESPONSIVE SECTION ENDS ==================================================================================*/
-/* PRICING PLAN PAGE RESPONSIVE SECTION STARTS  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-@media only screen and (min-width: 280px)  and (max-width:991px){}
-@media only screen and (min-width: 992px)  and (max-width:5000px){}
-/* PRICING PLAN PAGE RESPONSIVE SECTION ENDS ==============================================================================*/
 /* SIGN IN RESPONSIVE SECTION STARTS  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 @media only screen and (min-width: 280px)  and (max-width:450px){
@@ -1593,6 +1324,7 @@
         width: 26% !important;
     }
 }
+
 /* SIGN IN RESPONSIVE SECTION ENDS =======================================================================================*/
 /* SIGN UP RESPONSIVE SECTION STARTS  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 @media only screen and (min-width: 280px)  and (max-width:450px){
@@ -1634,65 +1366,14 @@
 /* SIGN UP RESPONSIVE SECTION ENDS =======================================================================================*/
 /* HEADER RESPONSIVE SECTION STARTS  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-@media only screen and (min-width: 992px) and (max-width :5000px){
-    .desktop-menu{display: block ;}
-    .mobile-menu-row{
+@media only screen and (min-width: 992px) and (max-width :5000px){.desktop-menu{display: block ;}.mobile-menu-row{
     display: none !important;
-}
-}
-@media only screen and (min-width: 280px) and (max-width: 991px){
-    .desktop-menu{display: none !important;}
-    .mobile-menu-row{
+}}
+@media only screen and (min-width: 280px) and (max-width: 991px){.desktop-menu{display: none !important;}.mobile-menu-row{
     display: block;
-}
-.custom-container{
-    height: 100%;
-}
-.stv-mobile-header {
-    margin: auto;
-    height: 100% !important;
-}
-.stv-mobile-header .header-col {
-    float: left;
-    /* position: relative; */
-    margin: auto;
-    width: fit-content !important;
-    padding: 4px 10px;
-}
-.stv-mobile-logo{
-    padding-bottom: 10px;
-}
-.opt-more {
-    padding: 20px 10px !important;
-}
-.stv-mobile-header .opt-more-dropdown {
-    background-color: #191722;
-    right: 12%;
-    top: 65px;
-    padding: 0;
-    position: absolute;
-    display: none;
-}
-}
+}}
 /* MOBILE TABS HEADER RESPONSIVE CSS STARTS ++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-@media only screen and (min-width: 280px)  and (max-width:350px){
-    .stv-mobile-header .opt-more-dropdown {
-        background-color: #191722;
-        right:5%;
-        top: 65px;
-        position: absolute;
-        display: none;
-    }
-}
-@media only screen and (min-width: 351px)  and (max-width:500px){
-    .stv-mobile-header .opt-more-dropdown {
-        background-color: #191722;
-        right: 7%;
-        top: 65px;
-        position: absolute;
-        display: none;
-    }
-}
+
 @media only screen and (min-width: 280px)  and (max-width:500px){
     .stv-header-menu{
         position: relative;
@@ -1714,9 +1395,9 @@
     .stv-mobile-header .img-fluid{
         width: 100%;
     }
-    /* .stv-mobile-header .header-3rd-section li{
+    .stv-mobile-header .header-3rd-section li{
         margin-right: 13px;
-    } */
+    }
     .stv-mobile-header .openbtn {
         font-size: 35px;
         margin: 0px 0;
@@ -1728,29 +1409,41 @@
     .stv-mobile-header .more{
         width: 20px;
     }
-
+    .stv-mobile-header .opt-more-dropdown {
+        background-color: #191722;
+        right: 8%;
+        top: 55px;
+        position: absolute;
+        display: none;
+        padding: 0 6px;
+    }
     .stv-mobile-header .custom-container {
         width: 100%;
         height: 100%;
         margin: auto;
     }
+    .stv-mobile-header .stv-profile-dropdown{
+        top: 36px;
+    }
 }
 @media only screen and (min-width: 501px)  and (max-width: 699px){
     .stv-mobile-header .opt-more-dropdown {
         background-color: #191722;
-        right: 9%;
-        top: 65px;
+        right: 10%;
+        top: 55px;
         position: absolute;
         display: none;
+        padding: 0 6px;
     }
 }
 @media only screen and (min-width: 700px)  and (max-width: 991px){
     .stv-mobile-header .opt-more-dropdown {
         background-color: #191722;
         right: 12%;
-        top: 65px;
+        top: 55px;
         position: absolute;
         display: none;
+        padding: 0 6px;
     }
 }
 @media only screen and (min-width: 501px)  and (max-width: 991px){
@@ -1774,9 +1467,9 @@
     .stv-mobile-header .img-fluid{
         width: 100%;
     }
-    /* .stv-mobile-header .header-3rd-section li{
+    .stv-mobile-header .header-3rd-section li{
         margin-right: 13px;
-    } */
+    }
     .stv-mobile-header .openbtn {
         font-size: 35px;
         margin: 0px 0;
@@ -1794,44 +1487,15 @@
         height: 100%;
         margin: auto;
     }
+    .stv-mobile-header .stv-profile-dropdown{
+        top: 36px;
+    }
 }
 /* MOBILE TABS HEADER RESPONSIVE CSS ENDS ============================================================================ */
 
 /* DESKTOP DISPLAY HEADER RESPONSIVE CSS STARTS ++++++++++++++++++++++++++++++++++++++++++++ */
 
 @media only screen and (min-width: 992px)  and (max-width: 1050px){
-    .custom-container {
-        width: 96%;
-        margin: auto;
-    }
-    .desktop-menu {
-        margin: auto !important;
-    }
-    .desktop-menu .main-menu ul li a {
-        font-size: 14px;
-        color: whitesmoke !important;
-        display: block;
-        padding: 13px 0px;
-        font-weight: 300;
-        text-transform: capitalize;
-    }
-    .desktop-menu .selectpicker.bg-dark {
-        cursor: pointer;
-        margin-top: 11px;
-    }
-    .desktop-menu .header-right ul li {
-        display: inline-block;
-        margin-right: 2px;
-        vertical-align: middle !important;
-        padding: 9px 9px;
-        height: 100%;
-        cursor: pointer;
-    }
-    .desktop-menu .profile-dp {
-        margin-top: 3px;
-    }
-}
-@media only screen and (min-width: 1051px)  and (max-width: 1199px){
     .custom-container {
         width: 95%;
         margin: auto;
@@ -1853,32 +1517,16 @@
     }
     .desktop-menu .header-right ul li {
         display: inline-block;
-        margin-right: 2px;
-        vertical-align: middle !important;
-        padding: 9px 9px;
-        height: 100%;
-        cursor: pointer;
+        margin-right: 15px;
+        vertical-align: middle;
     }
     .desktop-menu .profile-dp {
-        margin-top: 3px;
+        margin-top: 4px;
     }
 }
-@media only screen and (min-width: 1200px){
-    .desktop-menu .header-logo{
-        text-align: right;
-        width: 160px;
-    }
-    .desktop-menu .header-col {
-        float: left;
-        margin: auto;
-        width: fit-content !important;
-        height: 55px;
-    }
-    .desktop-menu .img-fluid{
-        width: 100%;
-    }
+@media only screen and (min-width: 1051px)  and (max-width: 1199px){
     .custom-container {
-        width: 100%;
+        width: 90%;
         margin: auto;
     }
     .desktop-menu {
@@ -1898,14 +1546,52 @@
     }
     .desktop-menu .header-right ul li {
         display: inline-block;
-        margin-right: 2px;
-        vertical-align: middle !important;
-        padding: 9px 9px;
-        height: 100%;
-        cursor: pointer;
+        margin-right: 15px;
+        vertical-align: middle;
     }
     .desktop-menu .profile-dp {
-        margin-top: 3px;
+        margin-top: 4px;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .desktop-menu .header-logo{
+        text-align: right;
+        width: 160px;
+    }
+    .desktop-menu .header-col {
+        float: left;
+        margin: auto;
+        width: fit-content !important;
+    }
+    .desktop-menu .img-fluid{
+        width: 100%;
+    }
+    .custom-container {
+        width: 90%;
+        margin: auto;
+    }
+    .desktop-menu {
+        margin: auto !important;
+    }
+    .desktop-menu .main-menu ul li a {
+        font-size: 14px;
+        color: whitesmoke !important;
+        display: block;
+        padding: 13px 0px;
+        font-weight: 300;
+        text-transform: capitalize;
+    }
+    .desktop-menu .selectpicker.bg-dark {
+        cursor: pointer;
+        margin-top: 11px;
+    }
+    .desktop-menu .header-right ul li {
+        display: inline-block;
+        margin-right: 15px;
+        vertical-align: middle;
+    }
+    .desktop-menu .profile-dp {
+        margin-top: 4px;
     }
 }
 /* DESKTOP DISPLAY HEADER RESPONSIVE CSS ENDS =============================================== */

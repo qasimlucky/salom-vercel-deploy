@@ -164,7 +164,6 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
     width: 100%;
     z-index: 99;
     background-color:#0d0d31;
-    border: 2px solid #0d0d31;
   }
   .sticky-nav + .content {
     padding-top: 60px;
@@ -190,8 +189,9 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
     height: 55px;
     border-radius: 12%;
 }
-.header-3rd-section{
+.header-3rd-section {
     padding: 0;
+    height: 100%;
 }
 .col-lg-3{
     width: 20%;
@@ -219,8 +219,8 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
     height: 100%;
 }
 .nav-icons{
-    font-size: 17px;
-    color: whitesmoke;
+    font-size: 14px !important;
+    color: rgb(185, 185, 185);
 }
 .profile {
     width: 30px;
@@ -272,6 +272,9 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
 }
 /*-- MOBILE MENU HEADER STARTS ++++++++++++++++++++++++++++++++++ */
           /* The Modal (background) */
+          .header-col.mobile-list-menu:hover .modal{
+            display: block;
+          }
           .modal {
             display: none; 
             position: fixed;
@@ -279,18 +282,28 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
             padding-top: 0px;
             left: 0;
             top: 0;
-            width: 100%;
+            max-width: 290px;
+            max-height: 300px;
+            border-radius: 4px;
+            /* width: 100%; */
+            /* height: auto; */
+
             overflow: auto;
+            box-shadow: 0 0 20px 10px black;
             background-color: rgb(0,0,0);
             background-color: rgba(0,0,0,0.4);
             }
-         
+            #mobile-menu ul {
+                text-align: center;
+                padding-left: 0;
+            }
         .modal-content {
-            background-color: #0d0d31;
+            background-color: #1d1d41 !important;
             margin: auto;
-            margin-right: 0px;
+            margin-left: 0px;
             padding: 20px;
             border: 1px solid #888;
+            max-width: 290px;
             width: 280px;
             height: 300px;
             }
@@ -298,7 +311,7 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
             list-style: none;
             }
         .modal-content ul li{
-            padding: 10px 0;
+            padding: 5px 0;
             font-size: 15px;
             font-family: poppins;
             }
@@ -309,27 +322,10 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
             }
       
         .close {
-            color: #aaaaaa;
+            color: whitesmoke !important;
             float: right;
             font-size: 28px;
             font-weight: bold;
-            }
-        .close:hover,
-        .close:focus {
-            color: orange;
-            text-decoration: none;
-            cursor: pointer;
-            }
-        .openbtn {
-            font-size: 20px;
-            margin: 12px 0;
-            cursor: pointer;
-            background-color:red;
-            color:whitesmoke;
-            border: none;
-            }
-        .openbtn:hover {
-            color:yellow;
             }
 
 /*-- MOBILE MENU HEADER ENDS ==================================== */
@@ -781,6 +777,10 @@ li.header--social a:hover i {
   position: absolute;
   content: "";
 }
+.btn-padding{
+    vertical-align: middle;
+    padding: 21px 0;
+}
 /* @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-menu:before {
     display: none;
@@ -942,9 +942,12 @@ li.header--social a:hover i {
   }
 }
 .header-right ul li {
-  display: inline-block;
-  margin-right: 35px;
-  vertical-align: middle;
+    display: inline-block;
+    margin-right: 2px;
+    vertical-align: middle !important;
+    padding: 9px 9px;
+    height: 100%;
+    cursor: pointer;
 }
 .header-right ul li:last-child {
   margin-right: 0px;
@@ -1002,9 +1005,10 @@ li.header--social a:hover i {
   vertical-align: middle;
 }
 .header-right.header-right-2 {
-  background: transparent;
-  text-align: center;
-  padding: 4% 0;
+    background: transparent;
+    text-align: center;
+    padding: 0;
+    height: 100%;
 }
 .header-right.header-right-2 ul .language {
   margin-right: 40px;
@@ -4512,7 +4516,100 @@ input {
 
 /* LANDING PAGE CSS ENDS  ================================================================================= */
 
-/* PROFILE PAGE CSS STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* LANGUAGE DROPDOWN  CSS STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.lng-dp {
+    width: 125px;
+    height: auto;
+    background-color: #191722;
+    right: 65px;
+    top: 55px;
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
+.stv-lng-select:hover .lng-dp{
+    display: block !important;
+}
+.stv-lng-select .lng-select-img-box {
+    display: flex;
+    position: relative;
+    padding: 11px 3px;
+    height: 35px;
+}
+.stv-lng-select h3 {
+    color: whitesmoke;
+    font-size: 11px;
+    font-family: poppins;
+    float: left;
+    margin: auto;
+    margin-right: 2px;
+}
+.stv-lng-select ul {
+    padding-left: 0;
+}
+.lng-dp-box{
+    width: 96%;
+    height: 98%;
+    margin: auto;
+}
+.lng-dp-item {
+    width: 100%;
+    padding: 0;
+    height: auto;
+    text-align: left;
+    border-bottom: 1px solid #666666;
+}
+.lng-dp-item p{
+    color: whitesmoke;
+    font-size: small;
+    padding: 3px;
+}
+.lng-dp-row{
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
+.lng-dp-col{
+    float: left;
+    position: relative;
+    margin: auto;
+}
+.lng-dp-item img {
+    width: 14px;
+    height: 15px;
+    padding: 0;
+}
+.lng-dp-item p {
+    color: whitesmoke;
+    font-size: 11px;
+    font-weight: 100;
+    font-family: 'Poppins';
+    padding: 0px;
+    width: 80%;
+}
+.lng-flag {
+    width: 16px;
+    height: 17px;
+    float: right;
+    margin-right: 3px;
+    /* margin-top: 0px !important; */
+    /* margin-block-end: 86px !important; */
+    /* vertical-align: top !important; */
+    /* align-self: flex-start !important; */
+    /* border-radius: 0px !important; */
+    /* background-color: whitesmoke; */
+    float: left;
+    margin: auto;
+    padding: 0px;
+    margin-right: 2px;
+    margin-top: -2px;
+}
+
+/* LANGUAGE DROPDOWN PAGE CSS ENDS =============================================================================== */
+
+/* HEADER PROFILE PAGE CSS STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .content-user-profile{
     margin-bottom: 9px !important;
@@ -4524,8 +4621,18 @@ input {
     width: 175px;
     height: 100px;
     background-color: #191722;
-    right: 0px;
-    top: 42px;
+    right: 0;
+    top: 55px;
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
+.stv-mobile-header .stv-profile-dropdown {
+    width: 175px;
+    height: 100px;
+    background-color: #191722;
+    right: 0;
+    top: 53px;
     position: absolute;
     display: none;
     z-index: 1;
@@ -4600,15 +4707,144 @@ input {
 .opt-more-dpd-box{
 
 }
-/* .absolute{
-    position: absolute;
+/* HEADER PROFILE PAGE .stv-profile CSS ENDS ===================================================================== */
+/* PROFILE PAGE .stv-profile CSS STARTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.stv-profile {
+    background-color: #0d0d31 !important;
 }
-.box-more{
-    position: absolute;
-} */
+.stv-profile .profile-p1{
+    width: auto;
+    margin: auto;
+}
+.stv-profile .profile-p1-h3{
+    padding: 0 0 6px;
+    font-family: poppins;
+}
+.stv-profile .profile-p2{
+    width: 67%;
+    display: flex;
+    margin: auto;
+    position: relative;
+}
+.stv-profile .profile-p2p1 {
+    height: auto;
+    width: 30%;
+    padding: 15px;
+    background-color: #0d0d3f;
+    float: left;
+    margin: auto;
+    position: relative;
+    margin-top: 0 !important;
+    box-shadow: 0 0 23px 0px #000000c4;
+}
+.stv-profile .p2p1-edit {
+    width: 100%;
+    height: 17px;
+}
+.stv-profile .p2p1-edit-box{
+    text-align: right;
+}
+.stv-profile .p2p1-edit-btn {
+    color: #d51c58;
+    text-align: right;
+    font-family: poppins;
+    font-size: small;
+}
+.stv-profile .p2p1-pic {
+    font-size: initial;
+    height: auto;
+    margin-top: -19px;
+}
+.stv-profile .p2p1-pic-box {
+    height: auto;
+    width: auto;
+    margin: auto;
+}
+.stv-profile .p2p1-pic-img{
+    border-radius: 50%!important;
+    height: 118px;
+    width: 118px;
+    margin: auto;
+}
+.stv-profile .p2p1-name{
+    padding-top: 5px;
+    color: whitesmoke;
+    text-align: center;
+}
+.stv-profile .p2p1-name-h3{
+    color: whitesmoke;
+    font-family: poppins;
+}
+.stv-profile .p2p1-about {
+    color: whitesmoke;
+    padding: 2px 0px;
+    text-align: center;
+    line-height: 19px;
+    font-size: 12px;
+    font-family: poppins;
+}
+.stv-profile .profile-p2p2{
+    height: 600px;
+    width: 65%;
+    margin-top: 0;
+    padding: 10px 20px;
+    background-color: #0D0D3F;
+    float: left;
+    position: relative;
+    margin: auto;
+    box-shadow: 0 0 23px 0px #000000c4;
+}
+.stv-profile .p2p2-hm-h3{
+    color: whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    padding: 10px 0;
+    font-family: poppins;
+}
+.stv-profile .p2p2-box{
+    font-size: initial;
+}
+.stv-profile .box-info{
+    color: whitesmoke;
+}
+.stv-profile .info-label {
+    color: whitesmoke;
+    font-family: poppins;
+    font-weight: 100;
+}
+.stv-profile .info-h3 {
+    color: whitesmoke;
+    font-family: 'Poppins';
+    font-size: small;
+}
+.stv-profile .box-change {
+    text-align: end;
+}
+.stv-profile .change-btn{
+    color: #d51c58 !important;
+    font-size: small;
+    font-family: poppins;
+}
+.stv-profile .membership{
+    font-size: initial;
+}
+.stv-profile .membership-box{
+    color: whitesmoke;
+    font-family: poppins;
+}
+.stv-profile .membership-btn {
+    background-color: #d51c58;
+    color: whitesmoke;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+button:hover{
+    /* display: none; */
+}
+a:hover{
 
-/* PROFILE PAGE CSS ENDS =============================================================================== */
+}
 
+/* PROFILE PAGE CSS ENDS ================================================================================= */
 /* PRICING PLAN PAGE CSS STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 .stv-plan-main{
     width: 100%;

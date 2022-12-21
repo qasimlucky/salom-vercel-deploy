@@ -8,16 +8,7 @@ function Header() {
     if(!localStorage.getItem("key")){
         localStorage.setItem("key", "En")
     }
-    if(!localStorage.getItem("language_title")){
-        localStorage.setItem("language_title", "English")
-        localStorage.setItem("flag", "web-assets/img/flags/italy.png")
-    }
-    const language_title= localStorage.getItem("language_title")
-    const lang_flag= localStorage.getItem("flag")
-    console.log(language_title)
-    console.log(lang_flag)
     const [data, setData] = useState([])
-    const [selecteddata, setSelectedData] = useState(false);
     
     useEffect(() => {
         
@@ -25,7 +16,6 @@ function Header() {
         .get("/language/select")
         .then(Response =>{
             setData(Response.data)
-            console.log("this is response data")
             console.log(Response.data)
             console.log("this is selected dataaaaaa")
             console.log(data)
@@ -37,20 +27,18 @@ function Header() {
         })
         
         },[]);
-        function handle(e){
-            localStorage.setItem("key", e.keyword)
-            localStorage.setItem("language_title", e.language_title)
-            localStorage.setItem("flag", e.flag)
-            //setSelectedData(e)
-            window.location.reload(false);
-            //setIsShown(true)
-              
-        }
+
+
     const countries = [
         { value: 'me', label: 'Montenegro', image: 'https://media.istockphoto.com/id/519611160/vector/flag-of-india.jpg?s=612x612&w=0&k=20&c=0HueaQHkdGC4Fw87s3DbeTE9Orv3mqHRLce88LV47E4=' },
         { value:'rs', label: 'Serbia', image: 'https://media.istockphoto.com/id/472330681/vector/flag-of-pakistan.jpg?s=612x612&w=0&k=20&c=6UIVoI58ZU_9cSuaDubD7BG_c0xXAVA8vAP1lIO5lVo=' }
       ];
-  
+      function handle(e){
+        localStorage.setItem("key", e.keyword)
+        window.location.reload(false);
+        console.log(e) 
+        
+    }
          return (
           <>
             {/* <Select id="stv-flag-main"
@@ -90,35 +78,33 @@ function Header() {
                         <div class="header-col col-xl-3 col-lg-3 d-none d-lg-block">
                             <div class="header-right header-right-2 text-end">
                                 <ul class="z-index header-3rd-section">
-                                    <li class="stv-lng-select">
-                                        {/* <Select id="stv-flag-main"
-                                            options={countries}
-                                            formatOptionLabel={country => (
-                                                <div className="country-option stv-flag-box">
-                                                <img src={country.image} class="stv-flag-img" alt="country-image" />
-                                                <span>{country.label}</span>
+                                    <li>
+                                       {/*  <Select id="stv-flag-main"
+                                            
+                                            options={data}
+                                            formatOptionLabel={optiondata => (
+                                                
+                                                <div onClick = {() =>handle(optiondata)} className="country-option stv-flag-box">
+                                                <img src={optiondata.flag} class="stv-flag-img" alt="country-image" />
+                                                <span>{optiondata.keyword}</span>
+
                                                 </div>
                                             )}
                                         /> */}
-                                        <ul>
-                                            <a  class="lng-select-img-box">
-                                                <img class="lng-flag" src={lang_flag} alt="profile img"/><h3>{language_title}</h3>
-                                            </a>
+                                        {/* <Select id="stv-flag-main"
                                             
-                                            <div class="lng-dp">
-                                            {data.map((item) => (
-                                             <div  class="lng-dp-box">
-                                                 <div onClick = {() =>handle(item)} class="lng-dp-item">
-                                                     <a class="lng-dp-row">
-                                                         <img class="lng-dp-col" src={item.flag}></img>
-                                                         <p class="lng-dp-col">{item.language_title}</p>
-                                                     </a>
-                                                 </div>
-                                             </div>
-                                             ))}
-                                            </div>
-                                            
-                                        </ul>
+                                            options={countries}
+                                            formatOptionLabel={country => (
+                                                
+                                                <div onClick = {() =>handle(country)} className="country-option stv-flag-box">
+                                                <img src={country.image} class="stv-flag-img" alt="country-image" />
+                                                <span>{country.label}</span>
+
+                                                <span >{country.value}</span>
+
+                                                </div>
+                                            )}
+                                        /> */}
                                         {/* <select class="selectpicker" data-width="fit">
                                             <option data-content='<span class="flag flag-us"></span> English'>English</option>
                                             <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
@@ -134,28 +120,28 @@ function Header() {
                                             <option class="rounded"  data-content='Dansk'>Dansk</option>
                                         </select>  */}
                                     </li>
-                                    <li><a class="btn-padding"><i class="fa fa-search nav-icons"></i></a></li>
-                                    <li><a class="btn-padding"><i class="fa fa-bell-o nav-icons"></i></a></li>
+                                    <li><a href=""><i class="fa fa-search nav-icons"></i></a></li>
+                                    <li><a href=""><i class="fa fa-bell-o nav-icons"></i></a></li>
 
                                     {/* PROFILE SECTION STARTS ++++++++++++++++++++++++++++++++++++++++++++++++*/}
                                     <li class="profile-dp">
-                                        <a>
+                                        <a href="">
                                             <img class="profile" src="https://static.xx.fbcdn.net/assets/?revision=816167972411634&name=desktop-creating-an-account-icon&density=1" alt="profile img"/>
                                         </a>
 
                                         <div class="stv-profile-dropdown">
                                             <div class="stv-profile-dropdown-box">
                                                 <div class="stv-profile-dropdown-item">
-                                                    <a class="stv-profile-row" href="http://localhost:3000/userprofile">
+                                                    <Link class="stv-profile-row" to="/userprofile">
                                                         <img class="stv-profile-col" src="web-assets/img/user-profile-icon.png"></img>
                                                         <p class="stv-profile-col">My Profile</p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 <div class="stv-profile-dropdown-item stv-pf-d-p1">
-                                                    <a class="stv-profile-row" href="http://localhost:3000/pricingplan">
+                                                    <Link class="stv-profile-row" to="/pricingplan">
                                                         <img class="stv-profile-col" src="web-assets/img/settings.png"></img>
                                                         <p class="stv-profile-col">Pricing Plan</p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                                 <div class="stv-profile-dropdown-item">
                                                     <a class="stv-profile-row" href="">
@@ -198,12 +184,12 @@ function Header() {
                                 </div>
                             </div>
                         </div> */}
-                        <div class="header-col mobile-list-menu">
+                        <div class="header-col">
                             <button id="myBtn" class="openbtn" onclick="openNav()">☰</button> 
                                 
                             <div id="myModal" class="modal">
                                 <div class="modal-content">
-                                    {/* <span class="close">&times;</span> */}
+                                    <span class="close">&times;</span>
                                     <nav id="mobile-menu">
                                         <ul>
                                             <li><a href="index.html">Home</a> </li>
@@ -231,41 +217,19 @@ function Header() {
 
                             <div class="header-col social-icons opt-more-dropdown">
                                 <div class="header-right header-right-2 opt-more-dpd-box">
-                                    <ul class="z-index header-3rd-section">
-                                        <li class="stv-lng-select">
-                                            <ul>
-                                                <a class="lng-select-img-box">
-                                                    <img class="lng-flag" src="web-assets/img/flags/italy.png" alt="profile img"/><h3>English</h3>
-                                                </a>
-
-                                                <div class="lng-dp">
-                                                    <div class="lng-dp-box">
-                                                        <div class="lng-dp-item">
-                                                            <a class="lng-dp-row">
-                                                                <img class="lng-dp-col" src="web-assets/img/flags/spain.png"></img>
-                                                                <p class="lng-dp-col">Spain</p>
-                                                            </a>
-                                                        </div>
-                                                        <div class="lng-dp-item lng-dp-item-1">
-                                                            <a class="lng-dp-row">
-                                                                <img class="lng-dp-col" src="web-assets/img/flags/denmark.png"></img>
-                                                                <p class="lng-dp-col">Denmark</p>
-                                                            </a>
-                                                        </div>
-                                                        <div class="lng-dp-item">
-                                                            <a class="lng-dp-row">
-                                                                <img class="lng-dp-col" src="web-assets/img/flags/united-states.png"></img>
-                                                                <p class="lng-dp-col">United States</p>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ul>
+                                    <ul class="header-3rd-section">
+                                        <li>
+                                            <select class="selectpicker bg-dark text-white small" data-width="fit">
+                                                <option class="rounded"  data-content='English'>English</option>
+                                                <option class="rounded"  data-content='Espanol'>Español</option>
+                                                <option class="rounded"  data-content='Italiano'>Italiano</option>
+                                                <option class="rounded"  data-content='Dansk'>Dansk</option>
+                                            </select>
                                         </li>
-                                        <li><a class="btn-padding"><i class="fa fa-search nav-icons"></i></a></li>
-                                        <li><a class="btn-padding"><i class="fa fa-bell-o nav-icons"></i></a></li>
+                                        <li><a href=""><i class="fa fa-search nav-icons"></i></a></li>
+                                        <li><a href=""><i class="fa fa-bell-o nav-icons"></i></a></li>
 
-                                        {/* PROFILE SECTION STARTS ++++++++++++++++++++++++++++++++++++++++++++++++*/}
+                                        {/* PROFILE SECTION MOBILE STARTS ++++++++++++++++++++++++++++++++++++++++++++++++*/}
                                         <li class="profile-dp">
                                             <a>
                                                 <img class="profile" src="https://static.xx.fbcdn.net/assets/?revision=816167972411634&name=desktop-creating-an-account-icon&density=1" alt="profile img"/>
@@ -294,59 +258,12 @@ function Header() {
                                                 </div>
                                             </div>
                                         </li>
-                                        {/* PROFILE SECTION ENDS  =================================================*/}
-                                    </ul>
-                                </div>
-                            </div>
-                            {/* <div class="header-col social-icons opt-more-dropdown">
-                                <div class="header-right header-right-2 opt-more-dpd-box">
-                                    <ul class="header-3rd-section">
-                                        <li>
-                                            <select class="selectpicker bg-dark text-white small" data-width="fit">
-                                                <option class="rounded"  data-content='English'>English</option>
-                                                <option class="rounded"  data-content='Espanol'>Español</option>
-                                                <option class="rounded"  data-content='Italiano'>Italiano</option>
-                                                <option class="rounded"  data-content='Dansk'>Dansk</option>
-                                            </select>
-                                        </li>
-                                        <li><a href=""><i class="fa fa-search nav-icons"></i></a></li>
-                                        <li><a href=""><i class="fa fa-bell-o nav-icons"></i></a></li> */}
-
-                                        {/* PROFILE SECTION MOBILE STARTS ++++++++++++++++++++++++++++++++++++++++++++++++*/}
-                                        {/* <li class="profile-dp">
-                                            <a>
-                                                <img class="profile" src="https://static.xx.fbcdn.net/assets/?revision=816167972411634&name=desktop-creating-an-account-icon&density=1" alt="profile img"/>
-                                            </a>
-
-                                            <div class="stv-profile-dropdown">
-                                                <div class="stv-profile-dropdown-box">
-                                                    <div class="stv-profile-dropdown-item">
-                                                        <a class="stv-profile-row" href="http://localhost:3000/userprofile">
-                                                            <img class="stv-profile-col" src="web-assets/img/user-profile-icon.png"></img>
-                                                            <p class="stv-profile-col">My Profile</p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="stv-profile-dropdown-item stv-pf-d-p1">
-                                                        <a class="stv-profile-row" href="http://localhost:3000/pricingplan">
-                                                            <img class="stv-profile-col" src="web-assets/img/settings.png"></img>
-                                                            <p class="stv-profile-col">Pricing Plan</p>
-                                                        </a>
-                                                    </div>
-                                                    <div class="stv-profile-dropdown-item">
-                                                        <a class="stv-profile-row" href="">
-                                                            <img class="stv-profile-col" src="web-assets/img/signout.png"></img>
-                                                            <p class="stv-profile-col">Logout</p>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li> */}
                                         {/* PROFILE SECTION MOBILE ENDS  =================================================*/}
 
                                         {/* <a href=""><img class="profile" src="web-assets/img/user-icon 1.png" alt="profile img"/></a> */}
-                                    {/* </ul>
+                                    </ul>
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
                         
 

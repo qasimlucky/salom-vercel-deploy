@@ -17,7 +17,7 @@ function LandingPage() {
 useEffect(() => { 
   axios
   .post("/language/get",{
-    keyword: "En"
+    keyword: lang
 
   })
   .then(Response =>{

@@ -77,7 +77,7 @@ function Header() {
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li><Link to="/home">Home</Link> </li>
-                                        <li><a href="service.html">Shows</a></li>
+                                        <li><a href="service.html">Tv Shows</a></li>
                                         <li><a href="about.html">Serials</a></li>
                                         <li><a href="faq.html">Movies</a></li>
                                         <li><a href="contact.html">Watch list</a></li>

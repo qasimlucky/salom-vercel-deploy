@@ -11,6 +11,7 @@ function Header() {
     if(!localStorage.getItem("language_title")){
         localStorage.setItem("language_title", "English")
         localStorage.setItem("flag", "web-assets/img/flags/italy.png")
+        window.location.reload(false);
     }
     const language_title= localStorage.getItem("language_title")
     const lang_flag= localStorage.getItem("flag")

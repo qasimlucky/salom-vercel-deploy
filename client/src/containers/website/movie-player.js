@@ -87,7 +87,7 @@ const MoviePlayer = () => {
         <section class="movie-player home-popup-s1" id="app" >
             {/* video li width or heihgt 100% krni hai or baher wali div ki height adjust krni hai */}
             <div class="mp-box">
-                <video id="video1" ref={videoRef} className="mp-video" src="/movie.mp4"></video>
+                <video id="video1" ref={videoRef} className="mp-video" src="http://localhost:7000/static/trailer_1671718231427.mp4"></video>
             </div>
             
             <div className="mp-timecontrols" >

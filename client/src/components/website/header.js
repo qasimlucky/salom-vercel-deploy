@@ -82,7 +82,7 @@ function Header() {
                                         <li><a href="about.html">Serials</a></li>
                                         <li><a href="faq.html">Movies</a></li>
                                         <li><a href="contact.html">Watch list</a></li>
-                                        <li><a href="blog.html">Kids Section</a></li>
+                                        <li><Link to="/dashboard">Kids Section</Link></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -108,11 +108,8 @@ function AddMovies(){
                     <table className="table table-striped">
                       <tbody>
                         <tr className="align-center">
-                          <th>ID</th>
-                          <th>Thumbnail</th>
                           <th>Title</th>
                           <th>Quality</th>
-                          <th>Date</th>
                           <th>Cast</th>
                           <th>Tags</th>
                           <th>Size</th> 
@@ -123,19 +120,8 @@ function AddMovies(){
                          </tr> 
                          {data.map(movieDetails => ( 
                           <tr className="align-center">
-                          <td> {movieDetails.movie_id}</td>
-                          <td>
-                            <img
-                              alt="image"
-                               src={movieDetails.thumbnail}
-                              className="rounded-circle"
-                              width={35}
-                              data-toggle="tooltip"
-                            />
-                          </td>
                           <td>{movieDetails.title}</td>
                           <td>{movieDetails.quality}</td>
-                          <td>{movieDetails.created_at}</td>
                             
                           
                            {/* <td>{JSON.stringify(movieDetails.cast)}</td>  */}

@@ -66,7 +66,7 @@ const videouploadpath =  async function (req, res){
         
         if(req.file){
             
-            const video =("http://localhost:7000/static/"+req.file.filename);
+            const video =("https://salom-vercel-deploy-qasim9754-gmailcom.vercel.app/"+req.file.filename);
             if(video !=="undefined"){
                 let bytesValue = req.file.size;
                 let gbValue = ((bytesValue / (1000 * 1000 * 1000)).toFixed(2)+"GB");
@@ -99,7 +99,7 @@ const traileruploadpath =  async function (req, res){
     const movie_id = req.body.movie_id
     try{
         if(req.file){
-            const  trailer=("http://localhost:7000/static/"+req.file.filename);
+            const  trailer=("https://salom-vercel-deploy-qasim9754-gmailcom.vercel.app/"+req.file.filename);
             const updatedMovie = await Movies.findOneAndUpdate({movie_id:movie_id},{$set :{trailer:trailer}});
             res.send(trailer)
 
@@ -196,7 +196,7 @@ const uploadBanner = async function (req, res){
         const movie_id= req.body.movie_id
        console.log("this is uploadBanner")
        if(req.file){
-        const banner =("http://localhost:7000/static/"+req.file.filename);
+        const banner =("https://salom-vercel-deploy-qasim9754-gmailcom.vercel.app/"+req.file.filename);
         console.log(banner)
         const updatedMovie = await Movies.findOneAndUpdate({movie_id:movie_id},{$set :{banner:banner}});
         res.send(banner)
@@ -217,7 +217,7 @@ const uploadThumbnail = async function (req, res){
         const movie_id= req.body.movie_id
         console.log("this is uploadThumbnail")
        if(req.file){
-        const  thumbnail=("http://localhost:7000/static/"+req.file.filename);
+        const  thumbnail=("https://salom-vercel-deploy-qasim9754-gmailcom.vercel.app/"+req.file.filename);
         console.log(thumbnail)
         const updatedMovie = await Movies.findOneAndUpdate({movie_id:movie_id},{$set :{thumbnail:thumbnail}});
         res.send(thumbnail)

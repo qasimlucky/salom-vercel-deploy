@@ -36,9 +36,9 @@ function AddMovies(){
                 <div className="card-header">
                   <h4>All Users</h4>
                   <div className="card-header-form">
-                    <a  onClick={() => {window.location.href="/movieupload"}} className="btn btn-success" style={{color:"white"}}>
+                    <Link  to="/movieupload" className="btn btn-success" style={{color:"white"}}>
                       + Add movies
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="card-header mb-3">

@@ -26,11 +26,11 @@ function HomePage() {
     const [muted, setMuted] = useState(false)
     const finalVolume = muted ? 0 : volume ** 2;
     const [languagedata, setLanguageData] = useState()
-    const [languagesate, setLanguageSate] = useState(true)
+    const [languagesate, setLanguageSate] = useState(false)
     //
    
     const lang= localStorage.getItem("key")
-    /* useEffect(() => { 
+    useEffect(() => { 
         axios
         .post("/language/get",{
           keyword: "En"
@@ -47,7 +47,7 @@ function HomePage() {
             console.log(err)
           })
           
-        },[]); */
+        },[]);
 
 
     const videoHandler = (control) => {
@@ -95,23 +95,25 @@ function HomePage() {
    //
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false)
+    const [SeasonmodalIsOpen, setSeasonIsOpen] = React.useState(false)
     const [isShown, setIsShown] = useState(true);
+    const [SeasonisShown, setSeasonIsShown] = useState(true);
     const [dbdata, setData] = useState([])
     const [selectedmoviedata, setSelectedMovieData] = useState([])
 
-    // useEffect(() => {
-    //   axios
-    //     .get("/movie/get")
-    //     .then(Response =>{
-    //     setData(Response.data)
-    //     console.log(dbdata)
-    //     //console.log(data)  
-    //   })
-    // .catch(err =>{
-    //     console.log(err)
-    //   })
+    useEffect(() => {
+      axios
+        .get("/movie/get")
+        .then(Response =>{
+        setData(Response.data)
+        console.log(dbdata)
+        //console.log(data)  
+      })
+    .catch(err =>{
+        console.log(err)
+      })
       
-    // },[]);
+    },[]);
  
     const slideLeft = () => {
         var slider = document.getElementById('slider');
@@ -172,20 +174,28 @@ function HomePage() {
       };
 
       function openModal() {
-        /* window.location.reload(false); */
         setIsOpen(true);
         setIsShown(false)
-        
-        
+      }
+      function SeasonopenModal() {
+        setSeasonIsOpen(true);
+        setIsShown(false)
       }
     
       function afterOpenModal() {
         // references are now sync'd and can be accessed.
         subtitle.style.color = '#f00';
       }
-    
+    function SeasonafterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = '#f00';
+      }
       function closeModal() {
         setIsOpen(false);
+        setIsShown(true)
+      }
+      function SeasoncloseModal() {
+        setSeasonIsOpen(false);
         setIsShown(true)
       }
       function selectedMovies(event,item) {
@@ -201,8 +211,7 @@ function HomePage() {
                   <>
  {languagesate && ( 
     <div>  
-        {/* HOME PAGE MODAL STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-        <Modal
+         <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
@@ -229,11 +238,12 @@ function HomePage() {
 
                                 
                                 <a   class="center-video-btn audio-play-center">
-                                    <i className="fa fa-volume-up" onClick={() =>isMuted() }></i>
+                                    
+                                    <i className="fa fa-volume-up" style={{fontSize:"36px", color:"whitesmoke"}} onClick={() =>isMuted() }></i>
                                 </a>
                                 ) : (
                                 <a   class="center-video-btn audio-play-center">
-                                    <i className="fas fa-volume-mute" onClick={() =>isMutedOff() }></i>
+                                    <i className="fas fa-volume-mute" style={{fontSize:"36px", color:"whitesmoke"}} onClick={() =>isMutedOff() }></i>
                                 </a>
                             
                             )}
@@ -386,214 +396,407 @@ function HomePage() {
                     <section class="box-shadow-top">
                         
                             <div>
-                                <div class="more-like">
-                                    More Like This  
-                                </div>
-                                <div className='relative flex items-center'>
-                                    <span class="show-arrow"><MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft2} size={40} /></span>
-                                    <div id='slider2' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
-                                    {data.map((item) => (
-                                        <div class="row-slide-box container  inline-block p-2 hover:scale-105 ease-in-out duration-300">
-                                        <img className='list-images inline-block hover:scale-105 ease-in-out duration-300' src={item.img} alt='/' />
-                                        <div class="overlay">
-                                            <div class="overlay-box">
-                                                <div class="overlay-parts overlay-part1">
-                                                    <h4>Boop Bitty</h4>
-                                                    <div class="part1-1">
-                                                        <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
-                                                    </div>
-                                                    <div class="part1-2 slide_right">
-                                                        <a  class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
-                                                    </div>
-                                                </div>
-                                                <div class="overlay-parts overlay-part2">
-                                                    <div class="part2-1"><a href=""><i class="fa fa-volume-down"></i></a></div>
-                                                    <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
-                                                    <div class="part2-1"><a href=""><i class="fa-solid fa-plus"></i></a></div>
-                                                </div>
-                                            </div>
-                                        
-                                        </div>
-                                    </div>
-                                        
-                                    ))}
-                                    </div >
-                                    <span class="show-arrow"><MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight2} size={40}  /></span>
-                                </div> 
-                            </div> 
-
-
-                            {/* SLIDER LIST TWO 2 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
-                            <div class="stv-hm-rs-main">
-                                <div class="stv-hm-rs-box1" >
-                                {/* {languagedata.your_fovourites}  */}
-                                your_fovourites   
-                                    <a>
-                                        {/* {languagedata.see_all} */}
-                                        see_all
-                                    </a>
-                                </div>
-                                <div className='stv-hm-rs-box2 relative flex items-center'  >
-                                    <span class="stv-hm-rs-box2-p1 show-arrow">
-                                        <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft6} size={40} />
-                                    </span>
-                                    <div id='slider6' className='stv-hm-rs-box2-p2 w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide' >
-                                        {data.map((item) => (
-                                            <div class="stv-hm-rs-box2-p2-box container  inline-block p-2 hover:scale-105 ease-in-out duration-300">
-                                                <img className='list-images inline-block hover:scale-105 ease-in-out duration-300' src={item.img}  alt='/'/>
-                                                <div class="overlay">
-                                                    <div class="overlay-box">
+                            <div style={{ backgroundColor:"#0d0d31", color:"white", padding:"8px 52px 0",fontSize:"18px", fontWeight:"bold"}}>More Like This  </div>
+                            <div className='relative flex items-center' style={{ backgroundColor:"#0d0d31"}} >
+                            <span class="show-arrow"><MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft2} size={40} /></span>
+                            <div
+                            id='slider2'
+                            className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'
+                            style={{padding:"13px 0"}}>
+                            {data.map((item) => (
+                                <div class="container  inline-block p-2 hover:scale-105 ease-in-out duration-300" style={{ width:"200px"}}>
+                                <img
+                                className='list-images inline-block hover:scale-105 ease-in-out duration-300'
+                                src={item.img}
+                                alt='/'
+                                />
+                                <div class="overlay">
+                                <div class="overlay-box">
                                                         <div class="overlay-parts overlay-part1">
                                                             <h4>Boop Bitty</h4>
                                                             <div class="part1-1">
                                                                 <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
                                                             </div>
                                                             <div class="part1-2 slide_right">
-                                                                <a onClick={openModal} class="btn-trailer">
-                                                                    <i class="fa-solid fa-play"></i> Play Now
-                                                                </a>
+                                                                <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
                                                             </div>
                                                         </div>
                                                         <div class="overlay-parts overlay-part2">
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa fa-volume-down"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-heart"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-plus"></i></a>
-                                                            </div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-plus"></i></a></div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div >
-                                    <span class="stv-hm-rs-box2-p3 show-arrow">
-                                        <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight6} size={40}  />
-                                    </span>
-                                </div> 
-                            </div> 
-                            {/* SLIDER LIST TWO 2 ENDS =========================================================*/} 
-
-                            {/* SLIDER LIST THREE 3 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++*/} 
-                            <div class="stv-hm-rs-main">
-                                <div class="stv-hm-rs-box1" >
-                                {/* {languagedata.featured_movies_to_watch_now} */}
-                                featured movies to watch now
-                                    <a>
-                                        {/* {languagedata.see_all} */}
-                                        see all
-                                    </a>
+                                
                                 </div>
-                                <div className='stv-hm-rs-box2 relative flex items-center'  >
-                                    <span class="stv-hm-rs-box2-p1 show-arrow">
-                                        <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft5} size={40} />
-                                    </span>
-                                    <div id='slider5' className='stv-hm-rs-box2-p2 w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
-                                        {data.map((item) => (
-                                            <div class="stv-hm-rs-box2-p2-box container  inline-block p-2 hover:scale-105 ease-in-out duration-300">
-                                                <img className='list-images inline-block hover:scale-105 ease-in-out duration-300' src={item.img} alt='/' />
-                                                <div class="overlay">
-                                                    <div class="overlay-box">
+                            </div>
+                                
+                            ))}
+                            </div >
+                            <span class="show-arrow"><MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight2} size={40}  /></span>
+                            </div> 
+                            </div> 
+                            <div>
+                            <div style={{ backgroundColor:"#0d0d31", color:"white", padding:"8px 52px 0",fontSize:"18px", fontWeight:"bold"}}>Favourites  </div>
+                            <div className='relative flex items-center' style={{ backgroundColor:"#0d0d31"}} >
+                            <span class="show-arrow"><MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft6} size={40} /></span>
+                            <div
+                            id='slider6'
+                            className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'
+                            style={{padding:"13px 0"}}>
+                            {data.map((item) => (
+                                <div class="container  inline-block p-2 hover:scale-105 ease-in-out duration-300" style={{ width:"200px"}}>
+                                <img
+                                className='list-images inline-block hover:scale-105 ease-in-out duration-300'
+                                src={item.img}
+                                alt='/'
+                                />
+                                <div class="overlay">
+                                <div class="overlay-box">
                                                         <div class="overlay-parts overlay-part1">
                                                             <h4>Boop Bitty</h4>
                                                             <div class="part1-1">
-                                                                <span class="movie-about views">16+</span>
-                                                                <span class="movie-about">2h 40m</span>
+                                                                <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
                                                             </div>
                                                             <div class="part1-2 slide_right">
-                                                                <a  onClick={openModal} class="btn-trailer">
-                                                                    <i class="fa-solid fa-play"></i> Play Now
-                                                                </a>
+                                                                <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
                                                             </div>
                                                         </div>
                                                         <div class="overlay-parts overlay-part2">
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa fa-volume-down"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-heart"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-plus"></i></a>
-                                                            </div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-plus"></i></a></div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <span class="stv-hm-rs-box2-p3 show-arrow">
-                                        <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight5} size={40}  />
-                                    </span>
-                                </div> 
-                            </div> 
-                            {/* SLIDER LIST THREE 3 ENDS =========================================================*/}
-
-                            {/* SLIDER LIST FOUR 4 STARTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
-                            <div class="stv-hm-rs-main">
-                                <div class="stv-hm-rs-box1" >
-                                    {/* {languagedata.upcoming_movies}    */}
-                                    upcoming_movies 
-                                    <a>
-                                        {/* {languagedata.see_all} */}
-                                        see_all
-                                    </a>
+                                
                                 </div>
-                                <div className='stv-hm-rs-box2 relative flex items-center'  >
-                                    <span class="stv-hm-rs-box2-p1 show-arrow">
-                                        <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft4} size={40} />
-                                    </span>
-                                    <div id='slider4' className='stv-hm-rs-box2-p2 w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
-                                        {data.map((item) => (
-                                            <div class="stv-hm-rs-box2-p2-box container  inline-block p-2 hover:scale-105 ease-in-out duration-300">
-                                                <img className='list-images inline-block hover:scale-105 ease-in-out duration-300' src={item.img} alt='/'/>
-                                                <div class="overlay">
-                                                    <div class="overlay-box">
+                            </div>
+                                
+                            ))}
+                            </div >
+                            <span class="show-arrow"><MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight6} size={40}  /></span>
+                            </div> 
+                            </div> 
+                            <div>
+                            <div style={{ backgroundColor:"#0d0d31", color:"white", padding:"8px 52px 0",fontSize:"18px", fontWeight:"bold"}}>Suggested For You  </div>
+                            <div className='relative flex items-center' style={{ backgroundColor:"#0d0d31"}} >
+                            <span class="show-arrow"><MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft5} size={40} /></span>
+                            <div
+                            id='slider5'
+                            className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'
+                            style={{padding:"13px 0"}}>
+                            {data.map((item) => (
+                                <div class="container  inline-block p-2 hover:scale-105 ease-in-out duration-300" style={{ width:"200px"}}>
+                                <img
+                                className='list-images inline-block hover:scale-105 ease-in-out duration-300'
+                                src={item.img}
+                                alt='/'
+                                />
+                                <div class="overlay">
+                                <div class="overlay-box">
                                                         <div class="overlay-parts overlay-part1">
                                                             <h4>Boop Bitty</h4>
                                                             <div class="part1-1">
-                                                                <span class="movie-about views">16+</span>
-                                                                <span class="movie-about">2h 40m</span>
+                                                                <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
                                                             </div>
                                                             <div class="part1-2 slide_right">
-                                                                <a  onClick={openModal} class="btn-trailer">
-                                                                    <i class="fa-solid fa-play"></i> Play Now
-                                                                </a>
+                                                                <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
                                                             </div>
                                                         </div>
                                                         <div class="overlay-parts overlay-part2">
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa fa-volume-down"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-heart"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-plus"></i></a>
-                                                            </div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-plus"></i></a></div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <span class="stv-hm-rs-box2-p3 show-arrow">
-                                        <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight4} size={40}  />
-                                    </span>
-                                </div> 
+                                
+                                </div>
+                            </div>
+                                
+                            ))}
+                            </div >
+                            <span class="show-arrow"><MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight5} size={40}  /></span>
                             </div> 
-                            {/* SLIDER LIST FOUR 4 ENDS =========================================================*/}
+                            </div> 
+                            <div>
+                            <div style={{ backgroundColor:"#0d0d31", color:"white", padding:"8px 52px 0",fontSize:"18px", fontWeight:"bold"}}>Upcoming Movies  </div>
+                            <div className='relative flex items-center' style={{ backgroundColor:"#0d0d31"}} >
+                            <span class="show-arrow"><MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft4} size={40} /></span>
+                            <div
+                            id='slider4'
+                            className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'
+                            style={{padding:"13px 0"}}>
+                            {data.map((item) => (
+                                <div class="container  inline-block p-2 hover:scale-105 ease-in-out duration-300" style={{ width:"200px"}}>
+                                <img
+                                className='list-images inline-block hover:scale-105 ease-in-out duration-300'
+                                src={item.img}
+                                alt='/'
+                                />
+                                <div class="overlay">
+                                <div class="overlay-box">
+                                                        <div class="overlay-parts overlay-part1">
+                                                            <h4>Boop Bitty</h4>
+                                                            <div class="part1-1">
+                                                                <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
+                                                            </div>
+                                                            <div class="part1-2 slide_right">
+                                                                <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="overlay-parts overlay-part2">
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-plus"></i></a></div>
+                                                        </div>
+                                                    </div>
+                                
+                                </div>
+                            </div>
+                                
+                            ))}
+                            </div >
+                            <span class="show-arrow"><MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight4} size={40}  /></span>
+                            </div> 
+                            </div> 
                         
                     </section>
                 </container>
             </main>
         
-                    </Modal> 
-             {/* HOME PAGE MODAL ENDS ================================================================================= */}
+         </Modal> 
+    <Modal
+        isOpen={SeasonmodalIsOpen}
+        onAfterOpen={SeasonafterOpenModal}
+        onRequestClose={SeasoncloseModal}
+        contentLabel="Example Modal"
+        class="modal-class"
+      >
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
+        {/* <button onClick={closeModal}>close</button> */}
+        <main class="home-popup web-bg-color">
+                <container class="home-popup-box">
+                    <section class="home-popup-s1">
+                    {/* video li width or heihgt 100% krni hai or baher wali div ki height adjust krni hai */}
+                    <div class="video-box">
+                         <video id="video1" ref={videoRef} className="video" src="/video.mp4"  autoplay="autoplay"></video> 
+                        {/* <video id="video1" ref={videoRef} className="video" src={selectedmoviedata.trailer}  autoplay="autoplay"></video> */}
+                    </div>
+                    
+                    <div className="controlsContainer">
 
+                        <div class="audio-control audio-control-row">
+                            {/* <img className="video-play-center" alt="" src="/audioIcon.gif"/>  setMuted(m => !m) */}
+                            <div class="audio-btn-box audio-control-col opacity">
+                            {ismuted ? (
+
+                                
+                                <a   class="center-video-btn audio-play-center">
+                                    
+                                    <i className="fa fa-volume-up" style={{fontSize:"36px", color:"whitesmoke"}} onClick={() =>isMuted() }></i>
+                                </a>
+                                ) : (
+                                <a   class="center-video-btn audio-play-center">
+                                    <i className="fas fa-volume-mute" style={{fontSize:"36px", color:"whitesmoke"}} onClick={() =>isMutedOff() }></i>
+                                </a>
+                            
+                            )}
+                            </div>
+                            <div class="audio-control-col audio-bar input-row">
+                                <input  class="input-col"
+                                    type="range"
+                                    min={0}
+                                    max={1}
+                                    step={0.02}
+                                    value={volume}
+                                    onChange={event => {
+                                        setVolume(event.target.valueAsNumber)
+                                        const resetVolume =event.target.valueAsNumber/10;
+                                        /* console.log (typeof(resetVolume))
+                                        console.log (typeof(videoRef.current.volume)) */
+                                        videoRef.current.volume = resetVolume;
+                                        console.log(videoRef.current.volume)
+
+                                }}
+                                />
+                                {/* <button onClick={() => setMuted(m => !m)}>
+                                    {muted ? "muted" : "unmuted"}
+                                </button> */}
+                                <p class="input-col"> &nbsp;{(finalVolume.toFixed(1)*100)}</p>
+                            </div>
+
+                            
+                        </div>
+
+                    <div class="center-box opacity">
+                        {playing ? (
+                        <a onClick={() => videoHandler("pause")} class="center-video-btn">
+                            <img className="controlsIcon--small video-play-center" alt="" src="/pause.svg"/> 
+                        </a>
+
+                        ) : (
+                        <a onClick={() => videoHandler("play")} class="center-video-btn">
+                            <img className="controlsIcon--small video-play-center" alt="" src="/play.svg"/>
+                        </a>
+                        )}
+                    </div>
+
+                    <div className="controls">
+                        {/* <img onClick={revert} className="controlsIcon" alt="" src="/backward-5.svg"/> */}
+                        <div class="video-title"><h2>THE MARSHAL KING </h2></div>
+                    {playing ? (
+
+                        <a onClick={() => videoHandler("pause")} class="btn-trailer video-btn">
+                            <img className="controlsIcon--small video-play" alt="" src="/pause.svg"/> &nbsp; Resume 
+                        </a>
+                        
+                        ) : (
+                        <a onClick={() => videoHandler("play")} class="btn-trailer video-btn">
+                            <img className="controlsIcon--small video-play" alt="" src="/play.svg"/> &nbsp; Resume
+                        </a>
+                        )}
+                        <div class="video-btn-like-row">
+                            <div class="part2-1 btn-like-col"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                            <div class="part2-1 btn-like-col"><a href=""><i class="fa-solid fa-plus"></i></a></div>
+                        </div>
+                        {/* <img onClick={fastForward} className="controlsIcon" alt="" src="/forward-5.svg"/> */}
+                    </div>
+                    </div>
+                    <div className="timecontrols">
+                    
+                        <div className="time_progressbarContainer">
+                            <div style={{ width: `${progress}%` }} className="time_progressBar"></div>
+                        </div>
+                        <div class="movie-time-control">
+                            <p className="controlsTime">{Math.floor(videoTime / 60) + ":" + ("0" + Math.floor(videoTime % 60)).slice(-2)}</p>
+                            &nbsp; &nbsp; <p> of </p> &nbsp; &nbsp;
+                            <p className="controlsTime">{Math.floor(currentTime / 60) + ":" + ("0" + Math.floor(currentTime % 60)).slice(-2)}</p>
+                        </div>
+                    </div>
+                     {/* // Volume Control Range slider */} 
+                    {/* <input
+                        type="range"
+                        defaultValue="0"
+                        className="mx-2 progressBarvolume bar volume"
+                    /> */}
+                    
+                        
+                    
+                     {/* <input
+                        type="range"
+                        className="progressBar bar"
+                        defaultValue="0"
+                        ref={progressBar}
+                        onChange={changeRange}
+                    /> */}                     
+                    
+                    </section>
+
+                    <section class="home-popup-s2-row" >
+                        <container class="home-popup-s2-col home-popup-s2-p1">
+                            <img src="https://i.pinimg.com/236x/c1/2b/d7/c12bd72009000fa249ee4260b2b9b4c5--english-movies-hollywood.jpg"></img>
+                        </container>
+
+                        <container class="home-popup-s2-col home-popup-s2-p2">
+
+                            <div class="popup-s2-btn-row">
+                                <a class="popup-s2-btn-col">Crime</a>
+                                <a class="popup-s2-btn-col">Drama</a>
+                                <a class="popup-s2-btn-col">Mystery</a>
+                            </div>
+
+                            <div class="popup-s2-movie-title">
+                                <h1>The Marshal King</h1>
+                            </div>
+
+                            <div class="popup-s2-rait-row rait-star">
+                                <a class="popup-s2-rait-col imbd">IMDB</a>
+                                <h5 class="popup-s2-rait-col points">8.5</h5>
+                                <div class="popup-s2-rait-col stars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star grey" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="popup-s2-rait-row time-movie">
+                                <div class="popup-s2-rait-col age"><a>18+</a></div>
+                                <div class="popup-s2-rait-col movie-time">2h 12m </div>
+                                <div class="popup-s2-rait-col quality"><a>HD</a></div>
+                                <div class="popup-s2-rait-col year">2022</div>
+                            </div>
+
+                            <div class="popup-s2-rait-row add-favrt">
+                                <div class="popup-s2-rait-col squre-dil"><i class="fa fa-heart" aria-hidden="true"></i></div>
+                                <div class="popup-s2-rait-col favourite"><h5>Add to Favourites</h5></div>
+                            </div>
+
+                            <div class="popup-s2-rait-row-content" >
+                                <h5>Lorem ipsum dilorr ammet, consectur adispgn ddeit, sed it ells, tempor me so widll addcteid him form us </h5>
+                            </div>
+
+                        </container>
+
+                        <container class="home-popup-s2-col home-popup-s2-p3">
+                            <div><p>Cast, Mark King, Williamson, Kate, Wmma Robert Eiza Gonz, More</p></div><br></br>
+                            <div><p>Cast, Mark King, Williamson, Kate, Wmma Robert Eiza Gonz, More</p></div><br></br>
+                            <div><p>Cast, Mark King, Williamson, Kate, Wmma Robert Eiza Gonz, More</p></div><br></br>
+                        </container>
+
+                    </section>
+
+                    <section class="box-shadow-top">
+                         
+                             
+                            <div>
+                            <div style={{ backgroundColor:"#0d0d31", color:"white", padding:"8px 52px 0",fontSize:"18px", fontWeight:"bold"}}>Episodes season 1  </div>
+                            <div className='relative flex items-center' style={{ backgroundColor:"#0d0d31"}} >
+                            <span class="show-arrow"><MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft4} size={40} /></span>
+                            <div
+                            id='slider4'
+                            className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'
+                            style={{padding:"13px 0"}}>
+                            {data.map((item) => (
+                                <div class="container  inline-block p-2 hover:scale-105 ease-in-out duration-300" style={{ width:"200px"}}>
+                                <img
+                                className='list-images inline-block hover:scale-105 ease-in-out duration-300'
+                                src={item.img}
+                                alt='/'
+                                />
+                                <div class="overlay">
+                                <div class="overlay-box">
+                                                        <div class="overlay-parts overlay-part1">
+                                                            <h4>Boop Bitty</h4>
+                                                            <div class="part1-1">
+                                                                <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
+                                                            </div>
+                                                            <div class="part1-2 slide_right">
+                                                                <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="overlay-parts overlay-part2">
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-heart"></i></a></div>
+                                                            <div class="part2-1"><a href=""><i class="fa-solid fa-plus"></i></a></div>
+                                                        </div>
+                                                    </div>
+                                
+                                </div>
+                            </div>
+                                
+                            ))}
+                            </div >
+                            <span class="show-arrow"><MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight4} size={40}  /></span>
+                            </div> 
+                            </div> 
+                        
+                    </section>
+                </container>
+            </main>
+        
+         </Modal>
 <main class="web-bg-color">
 
       {isShown && (<Header/>)}
@@ -641,14 +844,7 @@ function HomePage() {
                                                 </p>
                                             </div>
                                             <div class="slide_right" data-animation="animated bounceInRight">
-                                                <Link href="javascript:;" class="btn-trailer" to="/player">
-                                                    {/* {languagedata.play_now} */}
-                                                    play_now
-                                                </Link> 
-                                                <a href="javascript:;" class="btn-detail">
-                                                    {/* {languagedata.more_details} */}
-                                                    more_details
-                                                </a>
+                                                <Link href="javascript:;" class="btn-trailer" to="/player">{languagedata.play_now}</Link> <a href="javascript:;" class="btn-detail">{languagedata.more_details}</a>
                                             </div>
                                             <div class="watch-trailer">
                                                 <a href=""><img src="web-assets/img/play (1).png" alt=""/> </a> &nbsp; &nbsp; Watch Trailer
@@ -721,7 +917,7 @@ function HomePage() {
                     <i class="fa fa-angle-right"></i>
                 </a>
             </div> 
-            <div class="home-gradient-1">
+            <div  style={{width:"100%",height:"10px",backgroundColor:"#0d0d31",boxShadow:"0 -14px 32px 20px #0d0d31",contain:"layout"}} >
             </div> 
         </div> 
 
@@ -735,12 +931,8 @@ function HomePage() {
         <div class="stv-hm-rs-main mobile-margin">
             
             <div class="stv-hm-rs-box1 first-hm-heading" >
-            {/* {languagedata.trendin_see_all} */}
-                trending
-                <a>
-                    {/* {languagedata.see_all} */}
-                    see_all
-                </a>
+            {languagedata.trendin_see_all}
+                <a>{languagedata.see_all}</a>
             </div>
             <div className='stv-hm-rs-box2 relative flex items-center'  >
                 <span class="stv-hm-rs-box2-p1 show-arrow">
@@ -767,9 +959,7 @@ function HomePage() {
                                 </div>
                                 <div class="overlay-parts overlay-part2">
                                     <div class="part2-1">
-                                        <a href="">
-                                            <i class="fa fa-volume-down"></i>
-                                        </a>
+                                        <a href=""><i class="fa-solid fa-heart"></i></a>
                                     </div>
                                     <div class="part2-1">
                                         <a href=""><i class="fa-solid fa-heart"></i></a>
@@ -838,12 +1028,8 @@ function HomePage() {
          {/* SLIDER LIST TWO 2 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
         <div class="stv-hm-rs-main">
             <div class="stv-hm-rs-box1" >
-            {/* {languagedata.your_fovourites}  */}
-            your_fovourites   
-                <a>
-                    {/* {languagedata.see_all} */}
-                    see_all
-                </a>
+            {languagedata.your_fovourites}    
+                <a>{languagedata.see_all}</a>
             </div>
             <div className='stv-hm-rs-box2 relative flex items-center'  >
                 <span class="stv-hm-rs-box2-p1 show-arrow">
@@ -868,7 +1054,7 @@ function HomePage() {
                                     </div>
                                     <div class="overlay-parts overlay-part2">
                                         <div class="part2-1">
-                                            <a href=""><i class="fa fa-volume-down"></i></a>
+                                            <a href=""><i class="fa-solid fa-heart"></i></a>
                                         </div>
                                         <div class="part2-1">
                                             <a href=""><i class="fa-solid fa-heart"></i></a>
@@ -892,12 +1078,8 @@ function HomePage() {
         {/* SLIDER LIST THREE 3 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++*/} 
         <div class="stv-hm-rs-main">
             <div class="stv-hm-rs-box1" >
-             {/* {languagedata.featured_movies_to_watch_now} */}
-             featured movies to watch now
-                <a>
-                    {/* {languagedata.see_all} */}
-                    see all
-                </a>
+             {languagedata.featured_movies_to_watch_now}
+                <a>{languagedata.see_all}</a>
             </div>
             <div className='stv-hm-rs-box2 relative flex items-center'  >
                 <span class="stv-hm-rs-box2-p1 show-arrow">
@@ -916,14 +1098,14 @@ function HomePage() {
                                             <span class="movie-about">2h 40m</span>
                                         </div>
                                         <div class="part1-2 slide_right">
-                                            <a  onClick={openModal} class="btn-trailer">
+                                            <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" onClick={openModal} class="btn-trailer">
                                                 <i class="fa-solid fa-play"></i> Play Now
                                             </a>
                                         </div>
                                     </div>
                                     <div class="overlay-parts overlay-part2">
                                         <div class="part2-1">
-                                            <a href=""><i class="fa fa-volume-down"></i></a>
+                                            <a href=""><i class="fa-solid fa-heart"></i></a>
                                         </div>
                                         <div class="part2-1">
                                             <a href=""><i class="fa-solid fa-heart"></i></a>
@@ -947,12 +1129,8 @@ function HomePage() {
         {/* SLIDER LIST FOUR 4 STARTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
         <div class="stv-hm-rs-main">
             <div class="stv-hm-rs-box1" >
-                  {/* {languagedata.upcoming_movies}    */}
-                  upcoming_movies 
-                <a>
-                    {/* {languagedata.see_all} */}
-                    see_all
-                </a>
+                  {languagedata.upcoming_movies}    
+                <a>{languagedata.see_all}</a>
             </div>
             <div className='stv-hm-rs-box2 relative flex items-center'  >
                 <span class="stv-hm-rs-box2-p1 show-arrow">
@@ -971,14 +1149,14 @@ function HomePage() {
                                             <span class="movie-about">2h 40m</span>
                                         </div>
                                         <div class="part1-2 slide_right">
-                                            <a  onClick={openModal} class="btn-trailer">
+                                            <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" onClick={openModal} class="btn-trailer">
                                                 <i class="fa-solid fa-play"></i> Play Now
                                             </a>
                                         </div>
                                     </div>
                                     <div class="overlay-parts overlay-part2">
                                         <div class="part2-1">
-                                            <a href=""><i class="fa fa-volume-down"></i></a>
+                                            <a href=""><i class="fa-solid fa-heart"></i></a>
                                         </div>
                                         <div class="part2-1">
                                             <a href=""><i class="fa-solid fa-heart"></i></a>
@@ -1015,7 +1193,7 @@ function HomePage() {
                                         <div class="courses-details video-link">
                                             <div class="courses-details-images">
                                                     <img src="web-assets/img/banner-img/ship-img3.jpg" alt="Courses Details"/>
-                                                <a class="courses-play"  target="_blank">
+                                                <a class="courses-play" href="https://www.youtube.com/watch?v=zJgHbifIx-Q" target="_blank">
                                                     <i class="fa-solid fa-play play"></i>
                                                 </a>
                                             </div>
@@ -1035,10 +1213,7 @@ function HomePage() {
                                                 </p>
                                             </div>
                                             <div class="slide_right" data-animation="animated bounceInRight">
-                                                <a href="javascript:;" class="btn-trailer">
-                                                    {/* {languagedata.watch_now} */}
-                                                    watch_now
-                                                </a>                                                 
+                                                <a href="javascript:;" class="btn-trailer">{languagedata.watch_now}</a>                                                 
                                             </div>
                                             <div class="gradient"></div>
                                         </div>
@@ -1056,7 +1231,7 @@ function HomePage() {
                                         <div class="courses-details video-link">
                                             <div class="courses-details-images">
                                                     <img src="web-assets/img/banner-img/ship-img2.jpg" alt="Courses Details"/>
-                                                <a class="courses-play"  target="_blank">
+                                                <a class="courses-play" href="https://www.youtube.com/watch?v=zJgHbifIx-Q" target="_blank">
                                                 <i class="fa-solid fa-play play"></i>
                                                 </a>
                                             </div>
@@ -1094,7 +1269,7 @@ function HomePage() {
                                         <div class="courses-details video-link">
                                             <div class="courses-details-images">
                                                     <img src="web-assets/img/banner-img/ship-img1.jpg" alt="Courses Details"/>
-                                                <a class="courses-play"  target="_blank">
+                                                <a class="courses-play" href="https://www.youtube.com/watch?v=zJgHbifIx-Q" target="_blank">
                                                     <i class="fa-solid fa-play play"></i>
                                                 </a>
                                             </div>
@@ -1153,7 +1328,7 @@ function HomePage() {
                                               <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
                                           </div>
                                           <div class="part1-2 slide_right">
-                                              <a  class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
+                                              <a href="https://www.youtube.com/watch?v=zJgHbifIx-Q" class="btn-trailer"><i class="fa-solid fa-play"></i> Play Now</a>
                                           </div>
                                       </div>
                                       <div class="overlay-parts overlay-part2">
@@ -1178,12 +1353,8 @@ function HomePage() {
         {/* SLIDER LIST FIVE 5 STARTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
         <div class="stv-hm-rs-main stv-hm-rs-last">
             <div class="stv-hm-rs-box1" >
-                {/* {languagedata.tv_thrillers}   */}
-                tv_thrillers
-                <a>
-                    {/* {languagedata.see_all} */}
-                    see_all
-                </a>
+                {languagedata.tv_thrillers}  
+                <a>{languagedata.see_all}</a>
             </div>
             <div className='stv-hm-rs-box2 relative flex items-center'  >
                 <span class="stv-hm-rs-box2-p1 show-arrow">
@@ -1202,14 +1373,14 @@ function HomePage() {
                                             <span class="movie-about">2h 40m</span>
                                         </div>
                                         <div class="part1-2 slide_right">
-                                            <a  onClick={openModal} class="btn-trailer">
+                                            <a onClick={SeasonopenModal} class="btn-trailer">
                                                 <i class="fa-solid fa-play"></i> Play Now
                                             </a>
                                         </div>
                                     </div>
                                     <div class="overlay-parts overlay-part2">
                                         <div class="part2-1">
-                                            <a href=""><i class="fa fa-volume-down"></i></a>
+                                            <a href=""><i class="fa-solid fa-heart"></i></a>
                                         </div>
                                         <div class="part2-1">
                                             <a href=""><i class="fa-solid fa-heart"></i></a>

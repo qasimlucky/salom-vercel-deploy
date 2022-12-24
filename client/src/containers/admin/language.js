@@ -117,7 +117,6 @@ function Languages(){
                     <table className="table table-striped">
                       <tbody>
                         <tr className="align-center">
-                          <th>ID</th>
                           <th>Image</th>
                           <th>Title</th>
                           <th>keyword</th>
@@ -125,7 +124,6 @@ function Languages(){
                          </tr> 
                          {data.map(language => ( 
                           <tr className="align-center">
-                          <td> {language.lang_id}</td>
                           <td>
                             <img
                               alt="image"

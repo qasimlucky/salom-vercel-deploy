@@ -13,6 +13,7 @@ import Post from './containers/admin/post';
 import AddLanguage from './containers/admin/add-languages'
 import Languages from './containers/admin/language';
 import EditLanguage from './containers/admin/edit-language';
+import MoviesEdit from './containers/admin/edit-movie';
 
 //web Pages
 import SignUp from './containers/website/sign-up';
@@ -47,8 +48,10 @@ function App() {
 
             <Routes>
                 <Route path="/dashboard" exact element={<AdminHomePage/>}/>
-                <Route path="/movieupload" exact element={<MoviesUpload/>}/>  
+                {/* <Route path="/movieupload" exact element={<MoviesUpload/>}/> */}  
                 <Route path="/addmovies" exact element={<AddMovies/>}/>
+                <Route path="/editmovies" exact element={<MoviesEdit/>}/>
+                
                 
                  <Route path="/user" exact element={<User/>}/>
                  <Route path="/post" exact element={<Post/>}/>

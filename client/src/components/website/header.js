@@ -135,8 +135,8 @@ function Header() {
                                             <option class="rounded"  data-content='Dansk'>Dansk</option>
                                         </select>  */}
                                     </li>
-                                    <li><a class="btn-padding"><i class="fa fa-search nav-icons"></i></a></li>
-                                    <li><a class="btn-padding"><i class="fa fa-bell-o nav-icons"></i></a></li>
+                                    <li class="mt-1.5"><a class="btn-padding"><i class="fa fa-search nav-icons"></i></a></li>
+                                    <li class="mt-1.5"><a class="btn-padding"><i class="fa fa-bell-o nav-icons"></i></a></li>
 
                                     {/* PROFILE SECTION STARTS ++++++++++++++++++++++++++++++++++++++++++++++++*/}
                                     <li class="profile-dp">
@@ -263,8 +263,8 @@ function Header() {
                                                 </div>
                                             </ul>
                                         </li>
-                                        <li><a class="btn-padding"><i class="fa fa-search nav-icons"></i></a></li>
-                                        <li><a class="btn-padding"><i class="fa fa-bell-o nav-icons"></i></a></li>
+                                        <li class="mt-1.5"><a class="btn-padding"><i class="fa fa-search nav-icons"></i></a></li>
+                                        <li class="mt-1.5"><a class="btn-padding"><i class="fa fa-bell-o nav-icons"></i></a></li>
 
                                         {/* PROFILE SECTION STARTS ++++++++++++++++++++++++++++++++++++++++++++++++*/}
                                         <li class="profile-dp">

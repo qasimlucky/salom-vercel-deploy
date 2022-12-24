@@ -99,7 +99,7 @@ const traileruploadpath =  async function (req, res){
     const movie_id = req.body.movie_id
     try{
         if(req.file){
-            const  trailer=("https://salom-vercel-deploy-qasim9754-gmailcom.vercel.app/"+req.file.filename);
+            const  trailer=("http://localhost:3000/"+req.file.filename);
             const updatedMovie = await Movies.findOneAndUpdate({movie_id:movie_id},{$set :{trailer:trailer}});
             res.send(trailer)
 
@@ -196,7 +196,7 @@ const uploadBanner = async function (req, res){
         const movie_id= req.body.movie_id
        console.log("this is uploadBanner")
        if(req.file){
-        const banner =("https://salom-vercel-deploy-qasim9754-gmailcom.vercel.app/"+req.file.filename);
+        const banner =("http://localhost:3000/"+req.file.filename);
         console.log(banner)
         const updatedMovie = await Movies.findOneAndUpdate({movie_id:movie_id},{$set :{banner:banner}});
         res.send(banner)
@@ -217,7 +217,7 @@ const uploadThumbnail = async function (req, res){
         const movie_id= req.body.movie_id
         console.log("this is uploadThumbnail")
        if(req.file){
-        const  thumbnail=("https://salom-vercel-deploy-qasim9754-gmailcom.vercel.app/"+req.file.filename);
+        const  thumbnail=("http://localhost:3000/"+req.file.filename);
         console.log(thumbnail)
         const updatedMovie = await Movies.findOneAndUpdate({movie_id:movie_id},{$set :{thumbnail:thumbnail}});
         res.send(thumbnail)

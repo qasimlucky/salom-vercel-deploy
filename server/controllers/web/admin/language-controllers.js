@@ -75,7 +75,7 @@ const UpdateLanguage = async function (req, res){
         // const  flag=("http://localhost:7000/static/"+req.file.filename);
         if(req.body && req.file){
             console.log("this is both req.file and req.body")
-            const  flag=("/tem/"+req.file.filename);
+            const  flag=("http://localhost:7000/static/"+req.file.filename);
             console.log(flag+ "this is flag")
             const data = req.body
             console.log(data)

@@ -245,13 +245,6 @@ WE MAY RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE. IT'S BETTER AND SA
 .gradient{
     background-image: linear-gradient(2deg, #0d0d31, transparent);
 }
-.home-gradient-1{
-    width: 100%;
-    height: 10px;
-    background-color: #0d0d31;
-    contain: layout;
-    box-shadow: 0 -14px 32px 20px #0d0d31;
-}
 .fill{
     background-color: #111;
 }
@@ -4897,16 +4890,15 @@ a:hover{
     float: left;
     margin: auto;
 }
-.plan-p2-p1 {
+.plan-p2-p1{
     background-size: cover;
-    background-position: center;
 }
 .plan-p2-p1 p {
     color: whitesmoke;
     font-size: small;
     text-align: center;
     margin: auto;
-    padding-top: 5px;
+    padding-top: 7px;
     font-weight: 500;
 }
 .plan-p2-p1 h2 {
@@ -5134,16 +5126,6 @@ a:hover{
     position: relative;
     margin: auto;
 }
-.more-like{
-    background-color: #0d0d31;
-    color: whitesmoke;
-    padding: 8px 52px 0;
-    font-size: 18px;
-    font-weight: bold;
-}
-.relative.flex{
-    background-color: #0d0d31;
-}
 .home-popup-s2-p1 {
     width: 18%;
     height: 100%;
@@ -5253,9 +5235,6 @@ a:hover{
     font-size: small;
     color: #0d0d31;
 }
-.fa.fa-volume-down{
-    font-size: small;
-}
 .add-favrt .favourite{
     /* width: 75%; */
 }
@@ -5281,8 +5260,7 @@ a:hover{
     padding-top: 15px;
     font-size: small;
 }
-/*HOME PAGE MODAL POPUP CSS STARTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
+/* MODAL POPUP CSS STARTS ++++++++++++++++++++++++++++++*/
 .ReactModal__Overlay{
     background-color: rgb(166 166 166 /38%) !important;
 }
@@ -5299,6 +5277,7 @@ a:hover{
 .ReactModal__Content::-webkit-scrollbar {
     display: none;
 }
+/* MODAL POPUP CSS STARTS  ================================*/
 
 .hover-css{
     display: none !important;
@@ -5311,12 +5290,11 @@ a:hover{
     height: 115px;
     width: 30px;
 }
-.w-full.h-full{
-    padding: 13px 0;
-}
-.row-slide-box{
-    width: 200px;
-}
+
+
+
+/* home page popup video */
+
 :root{
     --player-width: 800px;
     --controls-color: #F2F2F2;
@@ -5359,7 +5337,7 @@ a:hover{
     z-index: 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
 }
-/* player progressbar ++++++++++++++++++++++++++++++++++*/
+/* player progressbar */
 .player-progressbar{
     width: var(--slider-width);
     height: 10px;
@@ -5441,7 +5419,7 @@ a:hover{
     right: calc(0px - ((var(--thumb-width) / 2) + 50px));
     opacity: 0;
 }
-/* preview progress ++++++++++++++++++++++++++++++++++*/
+/* preview progress */
 .range-container .preview-progress{
     position: absolute;
     width: var(--preview-progress-width);
@@ -5449,14 +5427,14 @@ a:hover{
     background-color: #ffffff63;
     z-index: -1;
 }
-/* loded data progress ++++++++++++++++++++++++*/
+/* loded data progress */
 .range-container .loaded-progress{
     position: absolute;
     height: 100%;
     background-color: #ffffff63;
     z-index: -2;
 }
-/* player lower controls +++++++++++++++++++*/
+/* player lower controls */
 .lower-controls{
     width: var(--player-width);
     height: 42px;
@@ -5704,7 +5682,7 @@ a:hover{
     position: relative;
     width: 26px;
   }
-  /* The time controls section ++++++++++++++++*/
+  /* The time controls section */
   
   .timecontrols {
     display: flex;
@@ -5757,14 +5735,6 @@ a:hover{
 }
 .audio-play-center{
     padding: 10px;
-}
-.fa.fa-volume-up{
-    font-size: 36px;
-    color: whitesmoke;
-}
-.fa.fa-volume-mute{
-    font-size: 36px;
-    color: whitesmoke;
 }
 .audio-control-row {
     position: relative;

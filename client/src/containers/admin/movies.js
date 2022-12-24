@@ -4,7 +4,7 @@ import axios from "axios";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 function AddMovies(){
   const [data, setData] = useState([])
   useEffect(() => {
@@ -23,6 +23,30 @@ function AddMovies(){
       })
       
     },[]);
+;
+
+      function createmovie(){
+      
+          axios
+          .get("/movie/create")
+          .then(Response =>{
+              //setmovieId(Response.data)
+              console.log(Response.data)
+              navigate("/editmovies",{state:{sendData:Response.data}})
+              
+            })
+          .catch(err =>{
+              console.log(err)
+            })
+      }
+
+    let navigate = useNavigate();
+    function editMovie(sendData){
+        console.log("this is send dataaaaa")
+        console.log(sendData)
+        navigate("/editmovies",{state:{sendData:sendData}})
+         
+      }
   
        return (
         <>
@@ -36,7 +60,7 @@ function AddMovies(){
                 <div className="card-header">
                   <h4>All Users</h4>
                   <div className="card-header-form">
-                    <Link  to="/movieupload" className="btn btn-success" style={{color:"white"}}>
+                    <Link onClick={()=>createmovie()}  className="btn btn-success" style={{color:"white"}}>
                       + Add movies
                     </Link>
                   </div>
@@ -145,9 +169,9 @@ function AddMovies(){
                             </div>
                           </td> */}
                           <td>
-                            <a href="#" className="btn btn-primary">
-                              View
-                            </a>
+                          <button  onClick={()=>editMovie(movieDetails)} className="btn btn-primary">
+                              Edit
+                            </button>
                           </td>
                         </tr>
 

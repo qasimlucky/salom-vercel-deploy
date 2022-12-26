@@ -78,10 +78,10 @@ function Header() {
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li><Link to="/home">Home</Link> </li>
-                                        <li><a href="service.html">Tv Shows</a></li>
-                                        <li><a href="about.html">Serials</a></li>
-                                        <li><a href="faq.html">Movies</a></li>
-                                        <li><a href="contact.html">Watch list</a></li>
+                                        <li><Link to="/tvshow">Tv Shows</Link></li>
+                                        <li><Link to="/serials">Serials</Link></li>
+                                        <li><Link to="/movies">Movies</Link></li>
+                                        <li><Link to="/watchlist">Watch list</Link></li>
                                         <li><Link to="/dashboard">Kids Section</Link></li>
                                     </ul>
                                 </nav>

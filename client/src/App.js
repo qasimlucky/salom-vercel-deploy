@@ -26,6 +26,11 @@ import SignUpOtp from './containers/website/signup-otp';
 import PricingPlan from './containers/website/pricing-plan';
 import HomePopUp from './containers/website/home-page-popup';
 import MoviePlayer from './containers/website/movie-player';
+import TvShows from './containers/website/tv-shows';
+import Serials from './containers/website/serials';
+import Movies from './containers/website/movies';
+import WatchList from './containers/website/watch-list';
+import KidsSection from './containers/website/kids-section';
 
 
 
@@ -43,6 +48,11 @@ function App() {
                 <Route path="/pricingplan" exact element={<PricingPlan/>}/>
                 <Route path="/popup" exact element={<HomePopUp/>}/>
                 <Route path="/player" exact element={<MoviePlayer/>}/>
+                <Route path="/tvshow" exact element={<TvShows/>}/>
+                <Route path="/serials" exact element={<Serials/>}/>
+                <Route path="/movies" exact element={<Movies/>}/>
+                <Route path="/watchlist" exact element={<WatchList/>}/>
+                <Route path="/kidsection" exact element={<KidsSection/>}/>
                 
             </Routes> 
 

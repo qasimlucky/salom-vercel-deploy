@@ -19,7 +19,7 @@ const MoviePlayer = () => {
     const [muted, setMuted] = useState(false)
     const finalVolume = muted ? 0 : volume ** 2
 
-    
+    const videoId = "video_1672238595660"
 
     function openModal() {
         /* window.location.reload(false); */
@@ -87,7 +87,7 @@ const MoviePlayer = () => {
         <section class="movie-player home-popup-s1" id="app" >
             {/* video li width or heihgt 100% krni hai or baher wali div ki height adjust krni hai */}
             <div class="mp-box">
-                <video id="video1" ref={videoRef} className="mp-video" src="http://localhost:7000/static/trailer_1671718231427.mp4"></video>
+                <video id="video1" ref={videoRef} className="mp-video" src={`/video/${videoId}`}></video>
             </div>
             
             <div className="mp-timecontrols" >

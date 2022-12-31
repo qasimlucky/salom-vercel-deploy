@@ -31,6 +31,7 @@ import Serials from './containers/website/serials';
 import Movies from './containers/website/movies';
 import WatchList from './containers/website/watch-list';
 import KidsSection from './containers/website/kids-section';
+import SignUpOtpVerify from "./containers/website/sign-up-otpverify"
 
 
 
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/userprofile" exact element={<UserPerfile/>}/>
                 <Route path="/test" exact element={<TestList/>}/>
                 <Route path="/signupotp" exact element={<SignUpOtp/>}/>
+                <Route path="/signupotpverify" exact element={<SignUpOtpVerify/>}/>
                 <Route path="/pricingplan" exact element={<PricingPlan/>}/>
                 <Route path="/popup" exact element={<HomePopUp/>}/>
                 <Route path="/player" exact element={<MoviePlayer/>}/>

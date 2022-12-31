@@ -45,8 +45,8 @@ function SignUp() {
                   <div class="row">
                     <div class="form-group col-12">
                       <select name="choice" class="form-control select-gender">
+                        <option class="option-gender" value="second" disabled selected>Gender</option>
                         <option class="option-gender" value="first">Male</option>
-                        <option class="option-gender" value="second" selected>Gender</option>
                         <option class="option-gender" value="third">Female</option>
                       </select>
                     </div>
@@ -54,11 +54,11 @@ function SignUp() {
 
                   <div class="row">
                     <div class="form-group col-12">
-                        <select name="choice" class="form-control select-gender">
+                      <select name="choice" class="form-control select-gender">
+                        <option class="option-gender" value="second" disabled selected>Country</option>
                         <option class="option-gender" value="first">Pakistan</option>
-                        <option class="option-gender" value="second" selected>Country</option>
                         <option class="option-gender" value="third">India</option>
-                        </select>
+                      </select>
                     </div>
                   
                   </div>

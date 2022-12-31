@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 const MongoStore = require('connect-mongo');
 const path = require('path');
+const fs = require('fs');
+const cors = require('cors');
 
 
 
@@ -21,6 +23,7 @@ const path = require('path');
     }))
 
 
+    app.use(cors());
 // database connection
     connectDB();
 
@@ -41,6 +44,8 @@ const path = require('path');
 
 // user routes 
     const userRoutes = require('./server/routes/web/user-route/user-route')
+    const userLanguageRoutes = require('./server/routes/web/user-route/user-language')
+    const userOtp = require('./server/routes/web/user-route/otp-route')
 
 
 
@@ -49,6 +54,8 @@ const path = require('path');
     app.use('/movie', movieRoutes)
     app.use('/add-title', titleRoutes)
     app.use('/user', userRoutes)
+    app.use('/language', userLanguageRoutes)
+    app.use('/otp', userOtp)
 
 
     //
@@ -65,7 +72,9 @@ const path = require('path');
                   req.session.authenticated = true;
                   req.session.user = {
                       user_id : user.user_id,
-                      first_name : user.first_name
+                      first_name : user.first_name,
+                      default_language:user.default_language,
+                      membership_plan:user.membership_plan
                   }
                   req.session.isAuth = true;
                   console.log(req.session)
@@ -93,6 +102,41 @@ const path = require('path');
         console.log(req.session)
         res.status(200).send("Welcome 🙌 ");
       });
+
+      //
+      app.get('/video/:id', (req, res) => {
+        const path = `./server/public/movies/${req.params.id}.mp4`;
+        const stat = fs.statSync(path);
+        const fileSize = stat.size;
+        const range = req.headers.range;
+        console.log(range)
+        if (range) {
+            const parts = range.replace(/bytes=/, "").split("-");
+            const start = parseInt(parts[0], 10);
+            const end = parts[1]
+                ? parseInt(parts[1], 10)
+                : fileSize-1;
+            const chunksize = (end-start) + 1;
+            const file = fs.createReadStream(path, {start, end});
+            const head = {
+                'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+                'Accept-Ranges': 'bytes',
+                'Content-Length': chunksize,
+                'Content-Type': 'video/mp4',
+            };
+            res.writeHead(206, head);
+            file.pipe(res);
+        } else {
+            const head = {
+                'Content-Length': fileSize,
+                'Content-Type': 'video/mp4',
+            };
+            res.writeHead(200, head);
+            fs.createReadStream(path).pipe(res);
+        }
+    });
+
+      //
 
      if(process.env.NODE_ENV=='production'){
          const path = require('path')

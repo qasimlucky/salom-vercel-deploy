@@ -20,8 +20,9 @@ const Users = require('../../../models/user/user');
 
     const createUser = async function (req, res){    
         try {
+            console.log("this is create user")
 
-            const {first_name,last_name,email,phone_number,password,dob,user_status,default_language,membership_plan} = req.body
+            const {first_name,last_name,email,phone_number,password,dob,user_status,default_language,membership_plan,gender,nationality} = req.body
                 const userList = await Users.find();
                 console.log(userList.length)
                 if (userList.length ==0 ){
@@ -50,7 +51,9 @@ const Users = require('../../../models/user/user');
                     dob,
                     user_status,
                     default_language,
-                    membership_plan
+                    membership_plan,
+                    gender,
+                    nationality
                     
                 });
 
@@ -68,8 +71,10 @@ const Users = require('../../../models/user/user');
         try {
             const data = req.body;
             var cleanData = await CleanData(data);
-            const {user_id,first_name,last_name,email,phone_number,password,dob,user_status,default_language,membership_plan} = cleanData;
-            const updateduser = await Users.findOneAndUpdate({user_id:user_id},{$set :{first_name:first_name,last_name:last_name,email:email,phone_number:phone_number,password:password,dob:dob,user_status:user_status,default_language:default_language,membership_plan:membership_plan}});
+            console.log(req.session.user.user_id)
+            const user_id = req.session.user.user_id
+            const {first_name,last_name,email,phone_number,password,dob,user_status,default_language,membership_plan,gender,nationality} = cleanData;
+            const updateduser = await Users.findOneAndUpdate({user_id:user_id},{$set :{first_name:first_name,last_name:last_name,email:email,phone_number:phone_number,password:password,dob:dob,user_status:user_status,default_language:default_language,membership_plan:membership_plan,gender:gender,nationality:nationality}});
 
             const userList = await Users.find({user_id:user_id});
             res.send (userList)

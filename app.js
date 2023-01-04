@@ -78,7 +78,7 @@ const cors = require('cors');
                   }
                   req.session.isAuth = true;
                   console.log(req.session)
-                  res.send(user)
+                  res.send("user")
               }else{
                   res.send("invalid password or phone number")
               }

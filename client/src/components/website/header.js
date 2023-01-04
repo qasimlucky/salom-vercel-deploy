@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import { useState,useEffect } from "react";
 import axios from "axios";
@@ -19,6 +19,8 @@ function Header() {
     console.log(lang_flag)
     const [data, setData] = useState([])
     const [selecteddata, setSelectedData] = useState(false);
+    
+    let navigate = useNavigate();
     
     useEffect(() => {
         
@@ -47,6 +49,23 @@ function Header() {
             //setIsShown(true)
               
         }
+
+
+        function submit(e){
+            console.log("this is send dataaaaa")
+            //console.log(sendData)
+            console.log("this is submit")
+            console.log(data)
+                e.preventDefault();
+                axios
+                .get("/user/logout",data,{
+                })
+                .then(res =>{
+                  alert(res.data)
+                  navigate("/signin")
+                  //console.log(res.data)
+                })
+          }
     const countries = [
         { value: 'me', label: 'Montenegro', image: 'https://media.istockphoto.com/id/519611160/vector/flag-of-india.jpg?s=612x612&w=0&k=20&c=0HueaQHkdGC4Fw87s3DbeTE9Orv3mqHRLce88LV47E4=' },
         { value:'rs', label: 'Serbia', image: 'https://media.istockphoto.com/id/472330681/vector/flag-of-pakistan.jpg?s=612x612&w=0&k=20&c=6UIVoI58ZU_9cSuaDubD7BG_c0xXAVA8vAP1lIO5lVo=' }
@@ -159,10 +178,10 @@ function Header() {
                                                     </a>
                                                 </div>
                                                 <div class="stv-profile-dropdown-item">
-                                                    <a class="stv-profile-row" href="">
+                                                    <Link onClick = {(e) =>submit(e)} class="stv-profile-row" href="">
                                                         <img class="stv-profile-col" src="web-assets/img/signout.png"></img>
                                                         <p class="stv-profile-col">Logout</p>
-                                                    </a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -287,10 +306,10 @@ function Header() {
                                                         </a>
                                                     </div>
                                                     <div class="stv-profile-dropdown-item">
-                                                        <a class="stv-profile-row" href="">
+                                                        <Link onClick = {(e) =>submit(e)} class="stv-profile-row" href="">
                                                             <img class="stv-profile-col" src="web-assets/img/signout.png"></img>
                                                             <p class="stv-profile-col">Logout</p>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>

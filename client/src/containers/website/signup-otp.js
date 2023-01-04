@@ -63,7 +63,7 @@ function SignUpOtp() {
                     <div class="row">
                       <div class="form-group col-12 signup-btn-box">
                       <button  type="submit" class="btn btn-lg btn-block">
-                            Send
+                            Send otp
                           </button>   
                           </div>
                           

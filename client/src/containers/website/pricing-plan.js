@@ -1,12 +1,16 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import axios from "axios";
+import Modal from 'react-modal';
 import Header from "../../components/website/header";
 import WebFooter from "../../components/website/footer"; 
 function PricingPlan() {
   const [languagedata, setLanguageData] = useState()
   const [languagesate, setLanguageSate] = useState(false)
+ 
   const lang= localStorage.getItem("key")
+
+  
  
   useEffect(() => { 
     axios
@@ -34,6 +38,7 @@ function PricingPlan() {
 
             
             <Header/>
+                    
                 <div class="stv-plan-main">
                     <div class="stv-plan-box">
                         <div class="stv-plan-p1"><h2>{languagedata.pricing_plan}</h2></div>

@@ -437,57 +437,70 @@ function HomePage() {
 
 
                             {/* SLIDER LIST TWO 2 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
-                            <div class="stv-hm-rs-main">
-                                <div class="stv-hm-rs-box1" >
-                                {/* {languagedata.your_fovourites}  */}
-                                your_fovourites   
-                                    <a>
-                                        {/* {languagedata.see_all} */}
-                                        see_all
-                                    </a>
+                            <div class="stv-hp-row">
+            <div class="stv-hp-header">
+            <h3 class="title">Featured Movies to watch now</h3>
+            <div class="stv-hp-progress-bar">
+                <div class="progress-item"></div>
+                <div class="progress-item"></div>
+                <div class="progress-item"></div>
+            </div>
+            </div>
+            <div class="stv-hp-container">
+            <button class="handle left-handle">
+                <div class="text">
+                    <i class="fa fa-angle-left"></i>
+                </div>
+            </button>
+            <div class="stv-hp-slider">
+                {data.map((item) => (
+                // <div class="stv-hp-slidein">
+                    <div  class="stv-hp-movie">
+                        <img class="list-images-movie" src={item.img} />
+                        <div class="overlay-movie">
+                            <div class="overlay-box">
+                                <div class="overlay-parts overlay-part1">
+                                    <h4>Boop Bitty</h4>
+                                    <div class="part1-1">
+                                        <span class="movie-about views">16+</span>
+                                        <span class="movie-about">2h 40m</span>
+                                    </div>
+                                    <div class="part1-2 slide_right">
+                                        <a class="btn-trailer" onClick={openModal}>
+                                            <i class="fa-solid fa-play"></i> Play Now
+                                        </a>
+                                        <input type="hidden"/>
+                                    </div>
                                 </div>
-                                <div className='stv-hm-rs-box2 relative flex items-center'  >
-                                    <span class="stv-hm-rs-box2-p1 show-arrow">
-                                        <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft6} size={40} />
-                                    </span>
-                                    <div id='slider6' className='stv-hm-rs-box2-p2 w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide' >
-                                        {data.map((item) => (
-                                            <div class="stv-hm-rs-box2-p2-box container  inline-block p-2 hover:scale-105 ease-in-out duration-300">
-                                                <img className='list-images inline-block hover:scale-105 ease-in-out duration-300' src={item.img}  alt='/'/>
-                                                <div class="overlay">
-                                                    <div class="overlay-box">
-                                                        <div class="overlay-parts overlay-part1">
-                                                            <h4>Boop Bitty</h4>
-                                                            <div class="part1-1">
-                                                                <span class="movie-about views">16+</span><span class="movie-about">2h 40m</span>
-                                                            </div>
-                                                            <div class="part1-2 slide_right">
-                                                                <a onClick={openModal} class="btn-trailer">
-                                                                    <i class="fa-solid fa-play"></i> Play Now
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="overlay-parts overlay-part2">
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa fa-volume-down"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-heart"></i></a>
-                                                            </div>
-                                                            <div class="part2-1">
-                                                                <a href=""><i class="fa-solid fa-plus"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div >
-                                    <span class="stv-hm-rs-box2-p3 show-arrow">
-                                        <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight6} size={40}  />
-                                    </span>
-                                </div> 
-                            </div> 
+                                <div class="overlay-parts overlay-part2">
+                                    <div class="part2-1">
+                                        <a href="">
+                                            <i class="fa fa-volume-down"></i>
+                                        </a>
+                                    </div>
+                                    <div class="part2-1">
+                                        <a href=""><i class="fa-solid fa-heart"></i></a>
+                                    </div>
+                                    <div class="part2-1">
+                                        <a href=""><i class="fa-solid fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                // </div>
+                 ))}
+                
+            </div>
+            <button class="handle right-handle">
+                <div class="text">
+                <i class="fa fa-angle-right"></i>
+                </div>
+            </button>
+            </div>
+        </div>
                             {/* SLIDER LIST TWO 2 ENDS =========================================================*/} 
 
                             {/* SLIDER LIST THREE 3 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++*/} 
@@ -977,25 +990,27 @@ function HomePage() {
 
         {/* SLIDER LIST ONE 1 STARTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
 
-        <div class="stv-hm-rs-main mobile-margin">
-            
-            <div class="stv-hm-rs-box1 first-hm-heading" >
-            {/* {languagedata.trendin_see_all} */}
-                trending
-                <a>
-                    {/* {languagedata.see_all} */}
-                    see_all
-                </a>
+        <div class="stv-hp-row">
+            <div class="stv-hp-header">
+            <h3 class="title">Featured Movies to watch now</h3>
+            <div class="stv-hp-progress-bar">
+                <div class="progress-item"></div>
+                <div class="progress-item"></div>
+                <div class="progress-item"></div>
             </div>
-            <div className='stv-hm-rs-box2 relative flex items-center'  >
-                <span class="stv-hm-rs-box2-p1 show-arrow">
-                    <MdChevronLeft className='opacity-50 cursor-pointer hover:opacity-100 hover-css  text-[#FFFFFF]' onClick={slideLeft7} size={40} />
-                </span>
-                <div id='slider7' className='stv-hm-rs-box2-p2 w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
-                    {data.map((item) => (
-                    <div class="stv-hm-rs-box2-p2-box container  inline-block p-2 hover:scale-105 ease-in-out duration-300">
-                        <img className='list-images inline-block hover:scale-105 ease-in-out duration-300'  src={item.img}  alt='/' />
-                        <div class="overlay">
+            </div>
+            <div class="stv-hp-container">
+            <button class="handle left-handle">
+                <div class="text">
+                    <i class="fa fa-angle-left"></i>
+                </div>
+            </button>
+            <div class="stv-hp-slider">
+                {data.map((item) => (
+                // <div class="stv-hp-slidein">
+                    <div  class="stv-hp-movie">
+                        <img class="list-images-movie" src={item.img} />
+                        <div class="overlay-movie">
                             <div class="overlay-box">
                                 <div class="overlay-parts overlay-part1">
                                     <h4>Boop Bitty</h4>
@@ -1004,7 +1019,7 @@ function HomePage() {
                                         <span class="movie-about">2h 40m</span>
                                     </div>
                                     <div class="part1-2 slide_right">
-                                        <a  /* onClick={openModal} */ onClick={(event) => { selectedMovies(event,item); openModal();}} class="btn-trailer">
+                                        <a class="btn-trailer" onClick={openModal}>
                                             <i class="fa-solid fa-play"></i> Play Now
                                         </a>
                                         <input type="hidden"/>
@@ -1025,13 +1040,19 @@ function HomePage() {
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    ))}
-                </div >
-                <span class="stv-hm-rs-box2-p3 show-arrow">
-                    <MdChevronRight className='opacity-50 cursor-pointer hover:opacity-100 hover-css text-[#FFFFFF] ' onClick={slideRight7} size={40}  />
-                </span>
-            </div> 
+                    
+                // </div>
+                 ))}
+                
+            </div>
+            <button class="handle right-handle">
+                <div class="text">
+                <i class="fa fa-angle-right"></i>
+                </div>
+            </button>
+            </div>
         </div>
          {/* SLIDER LIST ONE 1 ENDS =========================================================*/} 
 

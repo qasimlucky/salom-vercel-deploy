@@ -7,9 +7,7 @@ import WebFooter from "../../components/website/footer";
 import axios from "axios"; 
 function SignUpOtpVerify() {
     
-    const [data, setData] = useState({
-       
-
+    const [data, setData] = useState({  
     }) 
 
     function upload (e){
@@ -31,15 +29,37 @@ function SignUpOtpVerify() {
 
         function submit(e){
           console.log(data)
+          const sendData = data.phoneNumber;
               e.preventDefault();
               axios
-              .post("/otp/send",data,{
+              .post("otp/verify",data,{
         
               })
               .then(res =>{
                 alert("updated")
                 //console.log(res.data)
-                navigate("/signup")
+                console.log("this is response data")
+                //console.log(sendData)
+                console.log(res.data.errors)
+                
+
+                console.log("this is after data")
+                if(res.data.data == "approved"){
+                  navigate("/signup",{state:{sendData:sendData}})
+                }if(res.data.errors == "Number Not Found"){
+                  alert("invalid otp try again")
+                  navigate("/signupotp")
+                }
+                else{
+                  alert("invalid otp try again")
+                  navigate("/signupotp")
+                }
+
+                
+              }).catch(err =>{
+                console.log(err)
+                alert("invalid otp try again")
+                navigate("/signupotp")
               })
         
         }
@@ -68,7 +88,7 @@ function SignUpOtpVerify() {
                     <div class="row">
                       <div class="form-group col-12 signup-btn-box">
                       <button  type="submit" class="btn btn-lg btn-block">
-                            Singn up
+                            verify otp
                           </button>   
                           </div>
                           

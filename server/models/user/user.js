@@ -35,7 +35,13 @@ const UserSchema = new mongoose.Schema({
       default: null
     },
     user_status : {type: Boolean,
-      default: true}, 
+      default: true
+    }, 
+    nationality : {type: String,
+        default: null
+      },
+    gender : {type: String,
+          default: null},
 
   created_at:{
     type: Date,

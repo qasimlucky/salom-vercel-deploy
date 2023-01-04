@@ -24,16 +24,12 @@ const MoviePlayer = () => {
     function openModal() {
         /* window.location.reload(false); */
             setIsOpen(true);
-            //setIsShown(false)
-        
-        
+            //setIsShown(false)  
       }
-    
       function afterOpenModal() {
         // references are now sync'd and can be accessed.
         //subtitle.style.color = '#f00';
       }
-    
       function closeModal() {
         setIsOpen(false);
         //setIsShown(true)
@@ -87,7 +83,8 @@ const MoviePlayer = () => {
         <section class="movie-player home-popup-s1" id="app" >
             {/* video li width or heihgt 100% krni hai or baher wali div ki height adjust krni hai */}
             <div class="mp-box">
-                <video id="video1" ref={videoRef} className="mp-video" src={`/video/${videoId}`}></video>
+                {/* <video id="video1" ref={videoRef} className="mp-video" src={`/video/${videoId}`}></video> */}
+                <video id="video1" ref={videoRef} className="mp-video" src="video.mp4"></video>
             </div>
             
             <div className="mp-timecontrols" >
